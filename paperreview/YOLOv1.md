@@ -1,7 +1,10 @@
-# YOLO
-
-Status: finished
-URL: https://arxiv.org/pdf/1506.02640.pdf
+---
+layout: page
+title: YOLOv1
+description: >
+  YOLOv1
+hide_description: false
+---
 
 # You Only Look Once: Unified, Real-Time Object Detection
 
