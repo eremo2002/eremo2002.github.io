@@ -297,10 +297,17 @@ plugins:
 #   alexa:               <verification-id>
 #   yandex:              <verification-id>
 
-# Used for Twitter cards
+# # Used for Twitter cards
 # twitter:
 #   username:            <shortname>
-
+  
+github:
+  username:            <eremo2002>
+  
+linkedin:
+  username:            <eremo2002>
+  
+  
 # Used for Facebook open graph
 # facebook:
 #   app_id:              <id>
@@ -312,7 +319,8 @@ plugins:
 #   name:                <firstname> <lastname>
 #   links:
 #     - https://twitter.com/<username>
-    - https://github.com/<eremo2002>
+    
+
 
 
 # Other Plugins
