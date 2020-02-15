@@ -37,7 +37,7 @@
 - 네트워크 내에서 sparsity를 높이고 Dense한 Matrix 연산을 통해 컴퓨터가 효율적으로 연산하게 한다.
 - 네트워크의 sparse 구조가 더 성능이 높다. (Dropout), 그러나 컴퓨터의 연산은 Dense할수록 빠르다는 특징이 있다. 두가지 특징을 잘 고려하여 설계한 것이 Inception module
 
-![Inception/Untitled.png](.images/GoogLeNet/Untitled.png)
+![Untitled.png](.images/GoogLeNet/Untitled.png)
 
 ![Inception/Untitled%201.png](.images/GoogLeNet/Untitled 1.png)
 
