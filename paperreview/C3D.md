@@ -1,9 +1,3 @@
-# C3D
-
-Status: finished
-URL: https://arxiv.org/pdf/1412.0767.pdf
-Year: 2015 ICCV
-
 # Learning Spatiotemporal Features with 3D Convolutional networks
 
 # Intorduction
