@@ -1,5 +1,3 @@
-# AlexNet
-
 # ImageNet Classification with Deep Convolutional Neural Networks
 
 ![AlexNet/Untitled.png](AlexNet/Untitled.png)
