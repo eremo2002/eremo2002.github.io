@@ -26,7 +26,7 @@ layout: base
   {% if pages.size > 0 %}
     <h1 class="hr">{{ strings.Menu | default:"Menu" }}</h1>
     <ul class="related-posts">
-      {% for page in pages limit:1 %}
+      {% for page in pages limit:2 %}
         {% if page.layout == 'page' %}
           <li class="h4">
             <a href="{{ page.url | relative_url }}" class="flip-title">
