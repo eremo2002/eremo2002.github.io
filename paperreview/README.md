@@ -21,7 +21,6 @@ or [upgrades for PRO buyers](upgrade.md#pro-version).
 {:.related-posts.faded}
 
 ## Video Recognition
-* [Basics]{:.heading.flip-title} --- How to add different types of content.
 {:.related-posts.faded}
 
 ## Other
@@ -32,18 +31,9 @@ or [upgrades for PRO buyers](upgrade.md#pro-version).
 
 <!-- Classification & Detection -->
 [YOLOv1]: YOLOv1.md
-[upgrade]: upgrade.md
-[config]: config.md
+
 
 <!-- Video Recognition -->
-[basics]: basics.md
-[writing]: writing.md
-[scripts]: scripts.md
-
-[build]: build.md
-[advanced]: advanced.md
-
-
 [LICENSE]: ../LICENSE.md
 [NOTICE]: ../NOTICE.md
 [CHANGELOG]: ../CHANGELOG.md
