@@ -1,9 +1,3 @@
-# T3D
-
-Status: finished
-URL: https://arxiv.org/pdf/1711.08200.pdf
-Year: 2017 arXiv
-
 # Temporal 3D ConvNets: New Architecture and Transfer Learning for Video Classification
 
 # Abstract
