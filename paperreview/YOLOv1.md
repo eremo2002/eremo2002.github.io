@@ -1,8 +1,6 @@
 ---
 layout: page
-title: YOLOv1
-description: >
-  YOLOv1
+title: You Only Look Once: Unified, Real-Time Object Detection
 hide_description: false
 ---
 
