@@ -64,7 +64,7 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 
 - YOLO의 Loss function
 
-    ![Untitled 2.png](images/YOLOv1/Untitled 2.png)
+    ![Untitled 2.png](./images/YOLOv1/Untitled 2.png)
 
 - i = cell
 - j = j th bounding box in cell i (각 cell 마다 여러 개의 box를 사용하므로 cell i에서 j번째 box)
