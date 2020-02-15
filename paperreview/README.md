@@ -17,7 +17,7 @@ Buyers of the PRO version can jump straight to [installation for PRO buyers](ins
 or [upgrades for PRO buyers](upgrade.md#pro-version).
 
 ## Classification & Detection
-* [YOLO v1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
+* [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
 {:.related-posts.faded}
 
 ## Video Recognition
@@ -31,7 +31,7 @@ or [upgrades for PRO buyers](upgrade.md#pro-version).
 {:.related-posts.faded}
 
 <!-- Classification & Detection -->
-[YOLO v1]: YOLO_v1.md
+[YOLOv1]: YOLOv1.md
 [upgrade]: upgrade.md
 [config]: config.md
 
