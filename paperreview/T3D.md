@@ -75,18 +75,28 @@
 
     ![T3D/Untitled%202.png](./images/T3D/Untitled 2.png)
 
+<br/>
+<br/>
+<br/>
+<br/>
 - T3D-121, T3D-169를 UCF101 split 1 dataset으로 테스트해본 결과, 3D DenseBlock을 더 많이 사용하는 T3D-169가 조금 더 성능이 좋았음
 
     ![T3D/Untitled%203.png](./images/T3D/Untitled 3.png)
 
 - 논문 앞쪽에서는 2D DenseNet에서 2D conv, pooling layer를 3D layer 바꾼 모델을 3D DenseNet이라 부르고, 여기에 TTL을 추가한 모델을 T3D라고 부른다고 했는데 실험파트에서 DenseNet3D는 T3D를 의미함.
-
+<br/>
+<br/>
+<br/>
+<br/>
 - input data의 temporal depth가 activity recognition에서 중요한 key가 되기 때문에 이번에는 input data의 temporal depth를 다르게 주었을 때 성능이 얼마나 차이나는지 비교함.
 
     ![T3D/Untitled%204.png](./images/T3D/Untitled 4.png)
 
 - input data의 temporal depth가 더 깊은 경우 성능이 더 좋았음
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 다른 SOTA 아키텍처과 비교하기 위해 ResNet50, Inception 모델의 2D layer를 3D layer로 교체한 뒤 본인들의 아키텍처와 성능을 비교함
 
     ![T3D/Untitled%205.png](./images/T3D/Untitled 5.png)
@@ -103,7 +113,10 @@
 - 여기서 말하는 DenseNet3D-121은 T3D가 아니고 Table 1의 DenseNet3D-121 모델임..
 - T3D로도 해봤는데 224x224가 더 좋더라
 - 따라서 T3D를 Kinetics dataset으로 학습할 때 224x224 resolution을 사용하였다.
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 이번에는 frame sampling rate에 대한 실험
 
     ![T3D/Untitled%207.png](./images/T3D/Untitled 7.png)
@@ -112,10 +125,10 @@
 - 예를 들어 3D Conv에서 사용되는 커널이 temporal 축에서 sliding 되는 stride를 의미하는 듯?
 
 ### 4.3. HMDB51, UCF101, and Kinetics Datasets
-
+- 사용하는 Dataset의 정보
 ![T3D/Untitled%208.png](./images/T3D/Untitled 8.png)
 
-- 사용하는 Dataset의 정보
+
 
 ### 4.4. Implementation Details
 
@@ -143,16 +156,17 @@
 - 두번째 컬럼(FT-Transfer)은 UCF101, Kinetics dataset 절반으로 fine-tuning
 
 ### 4.6. Comparison with the state-of-the-art
-
-![T3D/Untitled%2010.png](./images/T3D/Untitled 10.png)
-
 - Kinetics dataset으로 다른 SOTA 모델들과 비교
+![T3D/Untitled%2010.png](./images/T3D/Untitled 10.png)
 - 논문에서 제안하는 DenseNet3D와 T3D는 ResNet3D-38, C3D보다 더 좋음
 - 그러나 RGB-I3D보다 성능이 뒤떨어짐. 그 이유는 T3D는 video clip이 32 frame인 반면 RGB-I3D는 64 frame을 사용했기 때문에 차이가 있음
-
+<br/>
+<br/>
+<br/>
+<br/>
+- UCF101, HMDB51 dataset으로 비교
 ![T3D/Untitled%2011.png](./images/T3D/Untitled 11.png)
 
-- UCF101, HMDB51 dataset으로 비교
 - 본 논문에서 제안하는 T3D, DenseNet3D은 Res3D, C3D보다 더 성능이 좋음
 
 # 5. Conclusion
