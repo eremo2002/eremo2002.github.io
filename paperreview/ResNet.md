@@ -1,8 +1,3 @@
-# ResNet
-
-Status: finished
-URL: https://arxiv.org/pdf/1512.03385.pdf
-
 # Deep Residual Learning for Image Recognition
 
 # Abstract
@@ -21,13 +16,13 @@ URL: https://arxiv.org/pdf/1512.03385.pdf
         - Gradient exploding은 gradient vanishing과 반대로 gradient 값이 너무 커져서 발산해버리는 문제
         - Layer를 더 많이 사용했는데 degradation으로 인해 오히려 error가 더 높음
 
-![ResNet/Untitled.png](ResNet/Untitled.png)
+![ResNet/Untitled.png](./images/ResNet/Untitled.png)
 
 - 네트워크의 depth를 늘리는 것은 이러한 degradation 문제를 일으킨다. degradation문제는 모델의 오버피팅으로 인해 발생하는 것이 아니라 레이어를 더 많이 쌓아올려 모델의 training error가 더 커지게 만든다. 즉 degradation은 training 과정에서 네트워크를 최적화하기 어렵게 만든다고 볼 수 있다.
 - shallower 모델과 deeper 모델을 가정했을 때 deeper model에 제안하는 identity mapping 레이어를 추가하면 deeper model의 성능이 shallower model보다 더 높아질 수 있다.
 - 따라서 본 논문에서는 degradation problem을 해결하기 위한 deep residual learning framework를 제안한다.
 
-![ResNet/Untitled%201.png](ResNet/Untitled%201.png)
+![ResNet/Untitled%201.png](./images/ResNet/Untitled 1.png)
 
 - x는 input, F(x)는 일반적인 Conv, BN, relu 같은 레이어를 거친 것을 의미한다. F(x)에 shortcut connection으로 x를 더해주어 F(x)가 아닌 F(x)+x를 다음 레이어로 전달한다. 여기서 shortcut connection이란 하나 이상의 레이어를 skipping하는 걸 말한다.
 - Deep residual net은 단순하게 레이어만 쌓아올린 plain network보다 최적화가 쉽고 성능이 더 높다. 또한 네트워크의 depth가 증가하더라도 좋은 performance를 낼 수 있다.
@@ -38,7 +33,7 @@ URL: https://arxiv.org/pdf/1512.03385.pdf
 
 - 기존의 뉴럴넷은 아래 왼쪽 그림과 같이 레이어를 쌓아 입력 x값이 target값 y를 잘 맵핑하는 H(x)를 찾는 것이 목표였다.
 
-![ResNet/Untitled%202.png](ResNet/Untitled%202.png)
+![ResNet/Untitled%202.png](./images/ResNet/Untitled 2.png)
 
 - 그러나 Residual block에선 H(x)가 F(x) + x가 된다. (여기서 F(x)는 weight layer와 ReLu를 의미한다.)
 - Residual block에서 x는 F(x)와 element-wise add연산이 이루어지기 때문에 x는 변하지 않는 값으로 볼 수 있다. 만약 H(x) = F(x) + x에서 F(x)가 0이라면 H(x) = x가 되고 입력값과 출력값이 같아지게 된다. 그러므로 F(x)가 0에 가까울만큼 매우 작은 값이라면 H(x)는 입력 x와 매우 비슷하다고 볼 수 있다.
@@ -63,13 +58,13 @@ $$y = F(x, {W_i}) + W_sx.\qquad (2)$$
     1. zero padding을 이용하여 dimension을 맞춰줌 (이 경우 추가적인 파라미터는 없음)
     2. 1x1 convolution을 이용하여 dimension을 맞춰줌. (shortcut connection으로 오는 x에 1x1 conv를 사용하여 dimension matching하는 걸 projection shortcut이라 부름)
 
-![ResNet/Untitled%203.png](ResNet/Untitled%203.png)
+![ResNet/Untitled%203.png](./images/ResNet/Untitled 3.png)
 
 - ResNet 아키텍처 구조
 
-![ResNet/Untitled%204.png](ResNet/Untitled%204.png)
+![ResNet/Untitled%204.png](./images/ResNet/Untitled 4.png)
 
-![ResNet/Untitled%205.png](ResNet/Untitled%205.png)
+![ResNet/Untitled%205.png](./images/ResNet/Untitled 5.png)
 
 # 4. Expriments
 
@@ -80,7 +75,7 @@ $$y = F(x, {W_i}) + W_sx.\qquad (2)$$
 - 그러나 논문에서 제안하는 Residual block을 적용했을 경우 레이어가 더 많은 모델의 성능이 더 높은 것을 확인할 수 있다.
 - 이 실험에서 plain network의 성능이 안 좋은 이유는 degradation문제가 아니고 단지 제안하는 solution을 적용했을 때 잘 작동한다는 것을 보여주는 결과임
 
-![ResNet/Untitled%206.png](ResNet/Untitled%206.png)
+![ResNet/Untitled%206.png](./images/ResNet/Untitled 6.png)
 
 ### Residual Networks.
 
@@ -89,7 +84,7 @@ $$y = F(x, {W_i}) + W_sx.\qquad (2)$$
     2. plain-34, ResNet-34를 비교했을 때 ResNet의 성능이 더 높으며 이는 residual learning이 deep 모델에서 잘 작동하며 효과적임
     3. plain-18, ResNet-18을 비교했을 때 성능면에서 크게 차이가 나지 않는다. 그러나 ResNet의 수렴이 훨씬 빨랐다. ResNet의 최적화가 더 빠르고 쉽다.
 
-    ![ResNet/Untitled%207.png](ResNet/Untitled%207.png)
+    ![ResNet/Untitled%207.png](./images/ResNet/Untitled 7.png)
 
 ### Identity vs. Projection Shortcuts.
 
@@ -101,7 +96,7 @@ $$y = F(x, {W_i}) + W_sx.\qquad (2)$$
 
     C. 모든 shortcut을 projection (모든 shortcut connection이 projection shortcut이라는 뜻인듯)
 
-![ResNet/Untitled%208.png](ResNet/Untitled%208.png)
+![ResNet/Untitled%208.png](./images/ResNet/Untitled 8.png)
 
 - A, B, C 모두 plain-34보단 성능이 좋다.
 - B는 A보다 조금 더 better하다. A의 zero-padded dimension, 즉 0으로 채워진 부분은 residual learning이 아니기 때문
@@ -114,7 +109,7 @@ $$y = F(x, {W_i}) + W_sx.\qquad (2)$$
 - 여기서 1x1을 사용하는 이유는 cost를 줄이기 위해 dimension을 줄이고 이후 element-wise add 연산을 위해 다시 dimension을 맞춰주기 위해 사용한다.
 - 이러한 구조가 projection shortcut 구조보다 더 효율적임
 
-![ResNet/Untitled%209.png](ResNet/Untitled%209.png)
+![ResNet/Untitled%209.png](./images/ResNet/Untitled 9.png)
 
 - ResNet의 레이어를 101, 152개 사용했을 때도 VGG와 비교했을 때 오히려 lower complexity
 
@@ -123,13 +118,13 @@ $$y = F(x, {W_i}) + W_sx.\qquad (2)$$
 - 다른 모델들과 비교했을 때
 - ResNet-110은 evaluation을 5번 한 거라서 평균, 표준편차까지 기록됨
 
-![ResNet/Untitled%2010.png](ResNet/Untitled%2010.png)
+![ResNet/Untitled%2010.png](./images/ResNet/Untitled 10.png)
 
 - ResNet이 plain network보다 error rate이 낮음
 - 레이어를 1200개까지 늘려봤는데 training error는 비슷한데 testing error가 더 높게 나옴
 - CIFAR-10은 상대적으로 small dataset이기 때문에 레이어를 1202개까지 사용할 필요가 없다고 봄
 
-![ResNet/Untitled%2011.png](ResNet/Untitled%2011.png)
+![ResNet/Untitled%2011.png](./images/ResNet/Untitled 11.png)
 
 ### Object Detection on PASCAL and MS COCO
 
@@ -138,7 +133,7 @@ $$y = F(x, {W_i}) + W_sx.\qquad (2)$$
 - mAP@.5는 IoU를 0.5로 했을 때 mAP를 의미함
 - mAP@[.5, .95]는 IoU를 0.5부터 0.95까지 0.05씩 증가시켜 총 10개 케이스에 대한 IoU를 구하고 이를 평균낸 값
 
-![ResNet/Untitled%2012.png](ResNet/Untitled%2012.png)
+![ResNet/Untitled%2012.png](./images/ResNet/Untitled 12.png)
 
 ### Object Detection Improvements
 
@@ -153,7 +148,7 @@ $$y = F(x, {W_i}) + W_sx.\qquad (2)$$
 - baseline model보다 box refinement, context, multi-scale testing을 적용했을 때 성능이 개선됨
 - class별로 AP를 계산했을 때 거의 모든 class에서 성능 개선이 이루어짐
 
-    ![ResNet/Untitled%2013.png](ResNet/Untitled%2013.png)
+    ![ResNet/Untitled%2013.png](./images/ResNet/Untitled 13.png)
 
 ### References
 
