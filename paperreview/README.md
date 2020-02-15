@@ -6,14 +6,6 @@ hide_description: true
 permalink: /paperreview/
 ---
 
-!!!!!!
-
-**NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable running shell commands and editing text files.
-{:.message}
-
-Buyers of the PRO version can jump straight to [installation for PRO buyers](install.md#pro-version),
-or [upgrades for PRO buyers](upgrade.md#pro-version).
-
 ## Classification & Detection
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
 {:.related-posts.faded}
