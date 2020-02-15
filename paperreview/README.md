@@ -29,7 +29,7 @@ or [upgrades for PRO buyers](upgrade.md#pro-version).
 * [CHANGELOG]{:.heading.flip-title} --- Version history of Hydejack.
 {:.related-posts.faded}
 
-[YOLOv1]: YOLOv1.md
+[yolov1]: YOLOv1.md
 
 
 [LICENSE]: ../LICENSE.md
