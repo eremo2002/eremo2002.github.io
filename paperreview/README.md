@@ -29,11 +29,9 @@ or [upgrades for PRO buyers](upgrade.md#pro-version).
 * [CHANGELOG]{:.heading.flip-title} --- Version history of Hydejack.
 {:.related-posts.faded}
 
-<!-- Classification & Detection -->
 [YOLOv1]: YOLOv1.md
 
 
-<!-- Video Recognition -->
 [LICENSE]: ../LICENSE.md
 [NOTICE]: ../NOTICE.md
 [CHANGELOG]: ../CHANGELOG.md
