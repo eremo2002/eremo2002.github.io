@@ -42,7 +42,7 @@ $$Pr(Class_i|Object) * Pr(Object) * IOU_{pred}^{truth} = PR(Class_i) * IOU_{pred
 - 기본 모델보다 속도에 더 초점을 둔 Fast YOLO도 있음 해당 Fast YOLO 모델은 레이어를 9개만 사용하였으며 각 레이어에서도 더 적은 필터를 사용함
 - 네트워크의 최종 output은 7x7x30 tensor
 
-![Untitled.png](images/YOLOv1/Untitled.png)
+![Untitled.png](./images/YOLOv1/Untitled.png)
 
 ### Training
 
@@ -53,7 +53,7 @@ $$Pr(Class_i|Object) * Pr(Object) * IOU_{pred}^{truth} = PR(Class_i) * IOU_{pred
 - bounding box의 center 좌표값 x, y가 특정 grid cell 위치에서 offset 값으로 사용하며 이 값도 0~1
 - final layer에서는 linear function, 그외 모든 레이어에서는 Leaky ReLU
 
-![Untitled1.png](images/YOLOv1/Untitled 1.png)
+![Untitled1.png](./images/YOLOv1/Untitled 1.png)
 
 - optimizing을 쉽게 하기 위해 sum-squared error 사용. 그러나 단순하게 오차제곱합을 사용하는 것은 localization error값과 classification error값의 영향력이 서로 다르기 때문에 문제가 될 수 있다. 이를 보완하기 위해 bounding box coordinate prediction의 loss를 increase하는 방향으로, confidence prediction loss 값을 decrease하는 방향으로 수정함. (confidence prediction loss 값을 decrease 하는 이유는 해당 cell에 object가 없는 경우 loss가 너무 커지는 문제를 방지하기 위함)
 
