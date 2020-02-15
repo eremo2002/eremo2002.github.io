@@ -11,6 +11,8 @@ permalink: /paperreview/
 * [AlexNet]{:.heading.flip-title} --- ImageNet Classification with Deep Convolutional Neural Networks
 * [VGG]{:.heading.flip-title} --- Very Deep Convolutional Networks for Large-Scale Image Recognition
 * [GoogLeNet]{:.heading.flip-title} --- Going Deeper with Convolutions
+* [ResNet]{:.heading.flip-title} --- Deep Residual Learning for Image Recognition
+
 {:.related-posts.faded}
 
 ## Video Recognition
@@ -30,7 +32,7 @@ permalink: /paperreview/
 [AlexNet]: AlexNet.md
 [VGG]: VGG.md
 [GoogLeNet]: GoogLeNet.md
-
+[ResNet]: ResNet.md
 <!--
   [LICENSE]: ../LICENSE.md
   [NOTICE]: ../NOTICE.md
