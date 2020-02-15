@@ -31,7 +31,7 @@ or [upgrades for PRO buyers](upgrade.md#pro-version).
 {:.related-posts.faded}
 
 <!-- Classification & Detection -->
-[YOLO v1]: YOLO v1.md
+[YOLO v1]: YOLO_v1.md
 [upgrade]: upgrade.md
 [config]: config.md
 
