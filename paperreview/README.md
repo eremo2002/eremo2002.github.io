@@ -17,7 +17,6 @@ permalink: /paperreview/
 
 ## Video Recognition
 * [C3D]{:.heading.flip-title} --- Learning Spatiotemporal Features with 3D Convolutional networks
-* [T3D]{:.heading.flip-title} --- Temporal 3D ConvNets: New Architecture and Transfer Learning for Video Classification
 {:.related-posts.faded}
 
 
