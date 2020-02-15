@@ -46,7 +46,7 @@
 
     ### 3.1 Temporal 3D ConvNets
 
-    ![T3D/Untitled.png](T3D/Untitled.png)
+    ![T3D/Untitled.png](./images/T3D/Untitled.png)
 
     - DenseNet을 기반으로 하기 때문에 구조가 DenseNet이랑 비슷하다. 즉 Dense Block 내에서는 모두 dense connectivity 구조를 가지며 이전 레이어의 모든 feature map을 concat하여 다음 layer로 전달한다.
     - TTL에서는 서로 다른 kernel depth를 가지는 커널을 사용하여 feature를 추출한 뒤 concat하는 구조를 갖는다. channel 축으로 concat하기 때문에 spatial size는 모두 같다.
