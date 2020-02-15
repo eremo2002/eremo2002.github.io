@@ -55,9 +55,11 @@ author:
 menu:
   - title:             Hydejack
     url:               /hydejack/
+  - title:             PaperReview
+    url:               /paperreview
   - title:             Hyde
     url:               /hyde/
-  - title:             PaperReview
+  - title:             Docs
     url:               /docs/
   - title:             About
     url:               /about/
