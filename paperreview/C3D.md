@@ -98,7 +98,9 @@
 - 트레이닝 시 input clip을 16x112x112로 spatial and temporal jittering한다.
 
     ⇒ ?
-
+<br/>
+<br/>
+<br/>
 ![C3D/Untitled%203.png](./images/C3D/Untitled 3.png)
 
 - 실험 결과에서 다른 모델과 비교할 때 고려해야 할 점
@@ -107,12 +109,17 @@
 - 그러나 [29] 모델보다 성능이 낮은데 그 이유는 해당 비교 모델은 한 clip이 120 frame이기 때문에 성능이 좋을 수밖에 없고 상대적으로 적은 수의 frame을 1 clip으로 사용하는 C3D와 직접적으로 비교하기에는 무리가 있다.
 - 이렇게 학습된 C3D는 다른 비디오 task에서 feature extractor로 사용될 수 있음
 
+<br/>
+<br/>
+<br/>
+<br/>
 ![C3D/Untitled%204.png](./images/C3D/Untitled 4.png)
 
 - C3D는 무엇을 학습하는지 이해하고자 deconvolution method를 사용하였음. 그 결과, 초기 프레임에서는 appearance를 이후 프레임에서는 salient motion에 집중한다는 것을 알게됨
 - 처음에는 사람 전체의 모습에 focus하다가 그 이후에는 motion에 focus
 - 즉 C3D는 motion과 appearance를 선택적으로 취한다는 점에서 2D ConvNet이랑 명확한 차이가 있다.
-
+<br/>
+<br/>
 - 또한 C3D를 "Action recognition", "Action Similarity Labeling", "Scene and Object Recognition"에 적용해봤을 때도 매우 우수한 성능을 보여줌
 
 ![C3D/Untitled%205.png](./images/C3D/Untitled 5.png)
