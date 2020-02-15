@@ -1,9 +1,3 @@
-# T3D
-
-Status: finished
-URL: https://arxiv.org/pdf/1711.08200.pdf
-Year: 2017 arXiv
-
 # Temporal 3D ConvNets: New Architecture and Transfer Learning for Video Classification
 
 # Abstract
@@ -52,7 +46,7 @@ Year: 2017 arXiv
 
     ### 3.1 Temporal 3D ConvNets
 
-    ![T3D/Untitled.png](T3D/Untitled.png)
+    ![T3D/Untitled.png](./images/T3D/Untitled.png)
 
     - DenseNet을 기반으로 하기 때문에 구조가 DenseNet이랑 비슷하다. 즉 Dense Block 내에서는 모두 dense connectivity 구조를 가지며 이전 레이어의 모든 feature map을 concat하여 다음 layer로 전달한다.
     - TTL에서는 서로 다른 kernel depth를 가지는 커널을 사용하여 feature를 추출한 뒤 concat하는 구조를 갖는다. channel 축으로 concat하기 때문에 spatial size는 모두 같다.
@@ -63,7 +57,7 @@ Year: 2017 arXiv
     - 이미지넷으로 사전 학습된 2D CNN을 I, 랜덤 초기화된 3D CNN을 V라 할 때, I → V로 knowledge를 잘 전달하는 것이 목표이다. 따라서 수백만개의 파라미터를 가지는 V를 처음부터 학습할 필요가 없다.
     - 2D CNN에는 video frame을 입력으로, 3D CNN에는 video clip을 입력으로 한다. 해당 frame과 clip이 같은 time stamp를 사용하면 frame과 clip은 결국 같은 정보를 의미하는 것이고 입력으로 들어가는 방식만 frame이냐 clip이냐 차이다.
 
-    ![T3D/Untitled%201.png](T3D/Untitled%201.png)
+    ![T3D/Untitled%201.png](./images/T3D/Untitled 1.png)
 
     - 2D, 3D CNN에서 나온 각각의 크기가 1024인 feature vector를 concat하여 2048짜리 vector를 만들고 뒤에 512, 128짜리 f.c layer를 추가한 뒤 마지막에 binary-classifier layer를 사용한다.
     - 주어진 frame pair가 video clip과 동일한 비디오에서 동일한 time stamp로부터 샘플링 된 경우 positive pair가 되고 서로 다른 비디오에서 샘플링된 경우 negative pair가 된다. 그리고 binary classifier는 frame pair가 video clip과 매칭되는지 아닌지 분류한다.
@@ -78,21 +72,21 @@ Year: 2017 arXiv
 
     - 적절한 네트워크 아키텍처를 찾기 위해 네트워크의 사이즈, input data의 temporal-depth를 바꿔가며 search함
 
-    ![T3D/Untitled%202.png](T3D/Untitled%202.png)
+    ![T3D/Untitled%202.png](./images/T3D/Untitled 2.png)
 
     - 기존의 2D-DenseNet 121, 169 구조를 기반으로 3D convolution을 적용하고 TTL을 추가한 네트워크를 T3D-121, T3D-169로 정의함. 구조는 Table 1과 같다.
 
-    ![T3D/Untitled%203.png](T3D/Untitled%203.png)
+    ![T3D/Untitled%203.png](./images/T3D/Untitled 3.png)
 
     - T3D-121, T3D-169를 UCF101 split 1 dataset으로 테스트해본 결과, 3D DenseBlock을 더 많이 사용하는 T3D-169가 조금 더 성능이 좋았음
     - 논문 앞쪽에서는 2D DenseNet에서 2D conv, pooling layer를 3D layer 바꾼 모델을 3D DenseNet이라 부르고, 여기에 TTL을 추가한 모델을 T3D라고 부른다고 했는데 실험파트에서 DenseNet3D는 T3D를 의미함.
 
-    ![T3D/Untitled%204.png](T3D/Untitled%204.png)
+    ![T3D/Untitled%204.png](./images/T3D/Untitled 4.png)
 
     - input data의 temporal depth가 activity recognition에서 중요한 key가 되기 때문에 이번에는 input data의 temporal depth를 다르게 주었을 때 성능이 얼마나 차이나는지 비교함.
     - input data의 temporal depth가 더 깊은 경우 성능이 더 좋았음
 
-    ![T3D/Untitled%205.png](T3D/Untitled%205.png)
+    ![T3D/Untitled%205.png](./images/T3D/Untitled 5.png)
 
     - 다른 SOTA 아키텍처과 비교하기 위해 ResNet50, Inception 모델의 2D layer를 3D layer로 교체한 뒤 본인들의 아키텍처와 성능을 비교함
     - 역시 T3D가 성능이 가장 좋다.
@@ -101,14 +95,14 @@ Year: 2017 arXiv
 
     - 적절한 frame resolution, frame sampling rate를 찾기 위한 실험
 
-    ![T3D/Untitled%206.png](T3D/Untitled%206.png)
+    ![T3D/Untitled%206.png](./images/T3D/Untitled 6.png)
 
     - frame resolution을 224x224, 112x112로 해봤을 때 역시 resolution이 큰 경우 성능이 더 높았다.
     - 여기서 말하는 DenseNet3D-121은 T3D가 아니고 Table 1의 DenseNet3D-121 모델임..
     - T3D로도 해봤는데 224x224가 더 좋더라
     - 따라서 T3D를 Kinetics dataset으로 학습할 때 224x224 resolution을 사용하였다.
 
-    ![T3D/Untitled%207.png](T3D/Untitled%207.png)
+    ![T3D/Untitled%207.png](./images/T3D/Untitled 7.png)
 
     - 이번에는 frame sampling rate에 대한 실험
     - input frame의 temporal stride를 다르게 했다는 거 같은데 이걸 frame sampling rate이라고 부르는게 잘 이해가 안 감.
@@ -116,7 +110,7 @@ Year: 2017 arXiv
 
     ### 4.3. HMDB51, UCF101, and Kinetics Datasets
 
-    ![T3D/Untitled%208.png](T3D/Untitled%208.png)
+    ![T3D/Untitled%208.png](./images/T3D/Untitled 8.png)
 
     - 사용하는 Dataset의 정보
 
@@ -139,7 +133,7 @@ Year: 2017 arXiv
 
     ### 4.5. Supervision Transfer
 
-    ![T3D/Untitled%209.png](T3D/Untitled%209.png)
+    ![T3D/Untitled%209.png](./images/T3D/Untitled 9.png)
 
     - 2D → 3D CNN으로 transfer learning 한 뒤
     - 첫번째 컬럼(Transfer)은 UCF101 dataset으로 fine-tuning
@@ -147,13 +141,13 @@ Year: 2017 arXiv
 
     ### 4.6. Comparison with the state-of-the-art
 
-    ![T3D/Untitled%2010.png](T3D/Untitled%2010.png)
+    ![T3D/Untitled%2010.png](./images/T3D/Untitled 10.png)
 
     - Kinetics dataset으로 다른 SOTA 모델들과 비교
     - 논문에서 제안하는 DenseNet3D와 T3D는 ResNet3D-38, C3D보다 더 좋음
     - 그러나 RGB-I3D보다 성능이 뒤떨어짐. 그 이유는 T3D는 video clip이 32 frame인 반면 RGB-I3D는 64 frame을 사용했기 때문에 차이가 있음
 
-    ![T3D/Untitled%2011.png](T3D/Untitled%2011.png)
+    ![T3D/Untitled%2011.png](./images/T3D/Untitled 11.png)
 
     - UCF101, HMDB51 dataset으로 비교
     - 본 논문에서 제안하는 T3D, DenseNet3D은 Res3D, C3D보다 더 성능이 좋음
