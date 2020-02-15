@@ -1,6 +1,6 @@
 # ImageNet Classification with Deep Convolutional Neural Networks
 
-![AlexNet/Untitled.png](AlexNet/Untitled.png)
+![Untitled.png](./images/AlexNet/Untitled.png)
 
 # Abstract
 
@@ -40,18 +40,18 @@
 - 네트워크 아키텍처는 아래 그림 2와 같다.
 - 학습가능한 레이어는 총 8개의 레이어로 구성되어 있다. conv layer 5개, f.c layer 3개
 
-![AlexNet/Untitled%201.png](AlexNet/Untitled%201.png)
+![Untitled 1.png](./images/AlexNet/Untitled 1.png)
 
 ### 3.1 ReLU Nonlinearity
 
 - 이 당시에는 activation function으로 tanh를 많이 사용함. 그러나 tanh는 학습속도가 느리다는 단점이 있기 때문에 AlexNet에선 ReLU를 activation function으로 사용하였다.
 - ReLU, tanh
 
-![AlexNet/Untitled%202.png](AlexNet/Untitled%202.png)
+![Untitled 2.png](./images/AlexNet/Untitled 2.png)
 
 - CIFAR-10 dataset으로 training error rate이 25% 도달하는 지점을 비교했을 때 ReLU가 더 빠르다는 것을 보여줌
 
-    ![AlexNet/Untitled%203.png](AlexNet/Untitled%203.png)
+    ![Untitled 3.png](./images/AlexNet/Untitled 3.png)
 
 ### 3.2 Training on Multiple GPUs
 
@@ -63,7 +63,7 @@
 
 - ReLU를 사용하면 input normalization이 굳이 필요 없지만 Local Response Normalization을 통해 generalization을 높일 수 있다.
 
-    ![AlexNet/Untitled%204.png](AlexNet/Untitled%204.png)
+    ![Untitled 4.png](./images/AlexNet/Untitled 4.png)
 
 - ReLU는 output값이 항상 0 이상인 값이 나온다. Conv, Pooling에서 어떤 특정 값이 주변 값보다 클 때, 주변 픽셀에 영향을 미치게 된다. tanh보다 ReLU는 이러한 영향이 더 커진다. 이러한 부분을 방지하기 위해 인접한 채널에서 같은 위치에 있는 픽셀 n개를 통해 정규화 하는 것을 LRN이라 한다.
 - 현재는 BN이나 다른 Normalization기법으로 인해 거의 사용 안함
@@ -79,11 +79,11 @@
 
 - 커널의 크기 z x z라 하고 stride를 s라 할 때  s = z인 경우 우리가 아는 일반적인 non-overlapping pooling이 된다. s < z인 경우 overlapping pooling이 되며 overlapping pooling을 사용했을 때 성능이 좀 더 개선되었다.
 
-![AlexNet/Untitled%205.png](AlexNet/Untitled%205.png)
+![Untitled 5.png](./images/AlexNet/Untitled 5.png)
 
 ### 3.5 Overall Architecture
 
-![AlexNet/Untitled%206.png](AlexNet/Untitled%206.png)
+![Untitled 6.png](./images/AlexNet/Untitled 6.png)
 
 # 4. Reducing Overfitting
 
@@ -94,25 +94,25 @@
     - 테스트 시, 4개의 각 corner와 1개의 center에서 5개의 224 x 224 패치를 뽑아내고 이를 다시 horizontal reflection하여 총 10개의 패치를 만든다.
     - 모델이 10개의 패치에 대해 prediction한 값을 평균내어 최종 prediction 값으로 사용함
 
-    ![AlexNet/Untitled%207.png](AlexNet/Untitled%207.png)
+    ![Untitled 7.png](./images/AlexNet/Untitled 7.png)
 
 - PCA color augmentation
     - 각 이미지의 RGB pixel 값에 대해 PCA를 수행하여 평균 = 0, 표준편차 = 0.1 크기를 갖는 랜덤변수 곱한 후 원래의 pixel 값에 더해줌
     - 주성분 분석, PCA(Principal Component Analysis)란  분포된 데이터들의 주성분을 찾아주는 방법. 아래와 같은 2차원 좌표평면에 n개의 점 데이터가 타원형으로 분포되어 있을 때 이 데이터들의 분포 특성을 2개의 벡터로 가장 잘 설명하는 것을 의미한다. 즉 e1, e2 두개의 벡터로 데이터 분포를 설명하는 것으로 e1의 방향과 크기, e2의 방향과 크기를 알면 이 데이터 분포가 어떤 형태인지 파악할 수 있다. 여기서 주성분 벡터는 서로 수직이다.
 
-        ![AlexNet/Untitled%208.png](AlexNet/Untitled%208.png)
+        ![Untitled 8.png](./images/AlexNet/Untitled 8.png)
 
     - 주성분 분석은 데이터 하나 하나에 대해 분석하는 것이 아니라 하나의 분포에 대해 주성분을 분석하는 것이다. 3차원 데이터에 대해선 3개의 벡터가 나온다.
     - PCA를 이미지에 적용했을 때, 이미지는 224x224차원의 벡터로 볼 수 있으므로 224x224 차원에서 n개의 점들을 통해 PCA를 수행하면 224x224개의 벡터를 얻을 수 있다.
 
-    ![AlexNet/Untitled%209.png](AlexNet/Untitled%209.png)
+    ![Untitled 9.png](./images/AlexNet/Untitled 9.png)
 
 ### 4.2 Dropout
 
 - dropout probability 0.5 사용
 - 특정 뉴런이 다른 뉴런에 의존하지 않기 때문에 뉴런의 co-adaption을 줄일 수 있음
 
-![AlexNet/Untitled%2010.png](AlexNet/Untitled%2010.png)
+![Untitled 10.png](./images/AlexNet/Untitled 10.png)
 
 # 5. Details of learning
 
@@ -125,11 +125,11 @@
 
 - ILSVRC-2010 test set 결과, top-1, top-5 error에서 SOTA 달성
 
-![AlexNet/Untitled%2011.png](AlexNet/Untitled%2011.png)
+![Untitled 11.png](./images/AlexNet/Untitled 11.png)
 
 - ILSVRC-2012 validation, test 결과
 
-![AlexNet/Untitled%2012.png](AlexNet/Untitled%2012.png)
+![Untitled 12.png](./images/AlexNet/Untitled 12.png)
 
 - ILSVRC-2012 dataset의 경우 test set label을 모르기 때문에 모든 모델에서 결과를 제시하진 못 함.
 - 제안하는 CNN은 Top-5(val)에서 18.2%를 기록함
@@ -141,7 +141,7 @@
 - AlexNet은 GPU 2개를 병렬적으로 놓고 트레이닝함, 각 GPU line에서 학습된 커널을 시각화해보니 서로 다른 특성을 학습한 결과를 보임
 - 컬러정보와 무관한 edge를 검출하는 경우 / 이미지의 color pattern을 뽑아내는 경우
 
-    ![AlexNet/Untitled%2013.png](AlexNet/Untitled%2013.png)
+    ![Untitled 13.png](./images/AlexNet/Untitled 13.png)
 
 - Figure 4의 Left, 대체적으로 top-5 prediction에서 정답 class가 포함되어있음
 - 또한 top-prediction의 label들 역시 정답 class와 비슷한 클래스로 예측함
@@ -150,7 +150,7 @@
     - test, train 두 이미지의 feature activation vector(4096차원)를 추출한 뒤 Euclidean Distance가 작은 것을 선택. (4096차원의 vector끼리 L2 distance를 일일이 계산하는 건 너무 비효율적이기 때문에 실제로는 binary code로 압축해서 수행함)
     - 실제 이미지의 픽셀 level에선 test 이미지와 선택된 train 이미지의 L2 Distance는 작지 않다. 예를 들면, 코끼리, 강아지 사진을 보면 같은 object일지라도 pose의 형태가 다양하기 때문이다. 그럼에도 불구하고 같은 class의 이미지를 잘 뽑아내는 것을 보면 visual knowledge가 잘 학습된 것을 의미함
 
-![AlexNet/Untitled%2014.png](AlexNet/Untitled%2014.png)
+![Untitled 14.png](./images/AlexNet/Untitled 14.png)
 
 # 7. Discussion
 
