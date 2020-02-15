@@ -42,7 +42,7 @@ $$Pr(Class_i|Object) * Pr(Object) * IOU_{pred}^{truth} = PR(Class_i) * IOU_{pred
 - 기본 모델보다 속도에 더 초점을 둔 Fast YOLO도 있음 해당 Fast YOLO 모델은 레이어를 9개만 사용하였으며 각 레이어에서도 더 적은 필터를 사용함
 - 네트워크의 최종 output은 7x7x30 tensor
 
-![YOLO/Untitled.png](YOLO/Untitled.png)
+![Untitled.png](images/YOLOv1/Untitled.png)
 
 ### Training
 
@@ -53,7 +53,7 @@ $$Pr(Class_i|Object) * Pr(Object) * IOU_{pred}^{truth} = PR(Class_i) * IOU_{pred
 - bounding box의 center 좌표값 x, y가 특정 grid cell 위치에서 offset 값으로 사용하며 이 값도 0~1
 - final layer에서는 linear function, 그외 모든 레이어에서는 Leaky ReLU
 
-![YOLO/Untitled%201.png](YOLO/Untitled%201.png)
+![Untitled 01.png](images/YOLOv1/Untitled 1.png)
 
 - optimizing을 쉽게 하기 위해 sum-squared error 사용. 그러나 단순하게 오차제곱합을 사용하는 것은 localization error값과 classification error값의 영향력이 서로 다르기 때문에 문제가 될 수 있다. 이를 보완하기 위해 bounding box coordinate prediction의 loss를 increase하는 방향으로, confidence prediction loss 값을 decrease하는 방향으로 수정함. (confidence prediction loss 값을 decrease 하는 이유는 해당 cell에 object가 없는 경우 loss가 너무 커지는 문제를 방지하기 위함)
 
@@ -64,7 +64,7 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 
 - YOLO의 Loss function
 
-    ![YOLO/Untitled%202.png](YOLO/Untitled%202.png)
+    ![Untitled 2.png](images/YOLOv1/Untitled 2.png)
 
 - i = cell
 - j = j th bounding box in cell i (각 cell 마다 여러 개의 box를 사용하므로 cell i에서 j번째 box)
@@ -83,42 +83,42 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 
 - final output은 7x7x30 tensor이며 각 grid cell은 2개의 bounding box 좌표와 20개 class score
 
-![YOLO/Untitled%203.png](YOLO/Untitled%203.png)
+![Untitled 3.png](images/YOLOv1/Untitled 3.png)
 
 - 2개의 bounding box의 중 무엇을 선택할지는 confidence score를 보고 결정함
 - 각 bounding box의 confidence score와 class 확률값을 모두 곱하여 20x1 vector를 구함
 - 7x7 grid cell에 총 98개의 bounding box가 만들어지므로 이런식으로 20x1 vector를 98개 구함
 
-![YOLO/Untitled%204.png](YOLO/Untitled%204.png)
+![Untitled 4.png](images/YOLOv1/Untitled 4.png)
 
-![YOLO/Untitled%205.png](YOLO/Untitled%205.png)
+![Untitled 5.png](images/YOLOv1/Untitled 5.png)
 
 - 예를 들어, 20x1 vector에서 첫번째 원소가 Dog class라고 하면 98개의 bbox에서 dog class에 대한 class 값이 다 들어있을 것이다.
 - dog class에 대한 98개의 확률값들 중에서 thresh를 넘지 못하는 값은 0으로 값을 바꾼다.
 - 98개의 확률값에 대해 내림차순으로 정렬한다.
 - 내림차순 정렬 후 NMS 알고리즘을 적용하여 98개의 값들 중 최종 후보 1개만 선택한다.
 
-![YOLO/Untitled%206.png](YOLO/Untitled%206.png)
+![Untitled 6.png](images/YOLOv1/Untitled 6.png)
 
 - Non-maximum Suppression 알고리즘이 어떻게 작동하는지 알아본다.
 - 임계치를 넘지 못하는 값은 0으로 만들고 내림차순 정렬하면 아래와 같이 정렬될 것이다.
 - 여기서 bbox_max(확률값이 가장 높은 box)를 다른 bbox(0이 아닌 box)들과 모두 비교하며 다른 bbox들을 지워나간다.
 
-![YOLO/Untitled%207.png](YOLO/Untitled%207.png)
+![Untitled 7.png](images/YOLOv1/Untitled 7.png)
 
 - bbox_max와 bbox_cur(bbox_max와 비교하려는 현재 bbox) 사이의 IOU를 계산하고 만약 이 값이 0.5가 넘으면 서로 같은 class를 예측한 것으로 보고 bbox_cur의 확률 값을 0으로 만들어준다.
 
-![YOLO/Untitled%208.png](YOLO/Untitled%208.png)
+![Untitled 8.png](images/YOLOv1/Untitled 8.png)
 
 - bbox_max를 다음 bbox_cur과 다시 비교한다.
 - 만약 IOU값이 0.5보다 작으면 서로 다른 class를 예측한 것으로 보고 bbox_cur의 확률값을 살려둔다.
 
-![YOLO/Untitled%209.png](YOLO/Untitled%209.png)
+![Untitled 9.png](images/YOLOv1/Untitled 9.png)
 
 - 위에서 파란색 bb15는 기존의 bbox_max(bb47)와 비교했을 때 IOU가 0.5가 안 넘어서 살려뒀던 box이다. bb15도 똑같이 dog class를 예측했지만 bb47이 예측한 dog와 다른 곳에 있는 dog를 예측한 것으로 보기 때문에 살려둔 것이다.
 - 그래서 bb15가 새로운 bbox_max가 되고 이를 뒤에 있는 bbox들과 다시 비교하며 걸러낸다.
 
-![YOLO/Untitled%2010.png](YOLO/Untitled%2010.png)
+![Untitled 10.png](images/YOLOv1/Untitled 10.png)
 
 - 이런식으로 모든 class에 대해 NMS 알고리즘을 수행하면 98개의 bbox에서 각 class에 대한 확률값을 같게 될 것이다.
 - YOLO에선 하나의 bounding box가 하나의 object만 찾기 때문에 bbox에 들어있는 값들 중 어떤 값을 최종 prediction으로 선택할 건지 골라야 한다.
@@ -127,11 +127,11 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
     2. 위에서 선택된 예측 class의 score가 임계치보다 크면 최종 bounding box로 선택하여 bounding box를 draw한다.
     3. 만약 예측 class의 score가 임계치보다 작으면 해당 bounding box는 object를 검출하지 못한 것으로 간주하고 skip한다.
 
-![YOLO/Untitled%2011.png](YOLO/Untitled%2011.png)
+![Untitled 11.png](images/YOLOv1/Untitled 11.png)
 
 - 위의 작업을 거치면 98개의 bounding box중에서 최종적으로 선택된 box가 아래처럼 그려진다.
 
-![YOLO/Untitled%2012.png](YOLO/Untitled%2012.png)
+![Untitled 12.png](images/YOLOv1/Untitled 12.png)
 
 ### Limitations of YOLO
 
@@ -144,7 +144,7 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 
 - YOLO와 다른 모델들의 속도를 비교
 
-    ![YOLO/Untitled%2013.png](YOLO/Untitled%2013.png)
+    ![Untitled 13.png](images/YOLOv1/Untitled 13.png)
 
 - Fast YOLO는 기존 YOLO보다 레이어를 적게 써서 경량화시킨 모델.
 - YOLO는 mAP도 높으면서 압도적인 FPS 성능을 낸 real-time detector
@@ -184,7 +184,7 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 - Other: class is wrong and IOU > 0.1
 - Background: IOU < 0.1
 
-    ![YOLO/Untitled%2014.png](YOLO/Untitled%2014.png)
+    ![Untitled 14.png](images/YOLOv1/Untitled 14.png)
 
 - YOLO는 Fast R-CNN에 비해 localization error가 매우 큼. 정확한 localization 성능이 뒤떨어짐 (training image로만 box의 크기나 비율이 학습되기 때문에 test시에 localization이 부정확할 수 있음 YOLO의 limitation에서 언급한 내용)
 - background error(False Positive)에선 YOLO의 성능이 더 높음
@@ -193,7 +193,7 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 
 - Fast R-CNN의 Background error가 큼. Fast-RCNN과 YOLO를 결합하여 Fast-RCNN이 잘못 예측한 Background bounding box와 YOLO의 Background bounding box를 overlapping 하여 Fast R-CNN의 background error를 개선함
 
-    ![YOLO/Untitled%2015.png](YOLO/Untitled%2015.png)
+    ![Untitled 15.png](images/YOLOv1/Untitled 15.png)
 
 - Combining 했을 때 Fast R-CNN의 mAP가 모두 개선됨.
 - 2007 data, VGG-M, CaffeNet은 Fast-RCNN의 다른 버전들.
@@ -203,7 +203,7 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 
 - PASCAL VOC 2012 Leaderboard 결과
 
-    ![YOLO/Untitled%2016.png](YOLO/Untitled%2016.png)
+    ![Untitled 16.png](images/YOLOv1/Untitled 16.png)
 
 - 제안하는 YOLO의 mAP 성능은 R-CNN VGG랑 비교할만한 정도.
 - mAP가 많이 낮은 이유는 small object들을 검출하는데 어려움이 있기 때문
@@ -213,7 +213,7 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 
 - Picasso Datset, People-Art Dataset에서 YOLO와 다른 Object detection 모델을 비교
 
-    ![YOLO/Untitled%2017.png](YOLO/Untitled%2017.png)
+    ![Untitled 17.png](images/YOLOv1/Untitled 17.png)
 
 - Artwork dataset에서 YOLO의 성능이 매우 뛰어남
 - R-CNN은 selective search에서 natural image에 tuning됐기 때문에 artwork 이미지에 적용했을 때 성능이 떨어짐. 또한 R-CNN의 classifier는 small region만 보기 때문에 성능이 떨어짐
