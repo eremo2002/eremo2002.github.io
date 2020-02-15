@@ -61,6 +61,8 @@ menu:
     url:               /hyde/
   - title:             Docs
     url:               /docs/
+  - title:             PaperReview2
+    url:               /paperreview2/
   - title:             About
     url:               /about/
 
