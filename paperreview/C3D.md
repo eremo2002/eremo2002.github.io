@@ -40,7 +40,7 @@
 - 이에 반해 3D convolution은 커널의 sliding 방향이 3차원이기 때문에 spatial 정보뿐만 아니라 temporal 정보까지 같이 다룰 수 있게 된다. 따라서 3D convolution, 3D pooling을 사용하는 것이 더 적합하다.
 - 2D Conv vs 3D Convs
 
-![C3D/Untitled.png](C3D/Untitled.png)
+![C3D/Untitled.png](./images/C3D/Untitled.png)
 
 [https://towardsdatascience.com/understanding-1d-and-3d-convolution-neural-network-keras-9d8f76e29610](https://towardsdatascience.com/understanding-1d-and-3d-convolution-neural-network-keras-9d8f76e29610)
 
@@ -75,7 +75,7 @@
 - 위에서 제시한 네트웍 아키텍처를 UCF101 dataset의 split 1으로 실험함
 - 
 
-![C3D/Untitled%201.png](C3D/Untitled%201.png)
+![C3D/Untitled%201.png](./images/C3D/Untitled 1.png)
 
 - left: homogeneous, right: changing depth
 - 아키텍처 중 depth-3가 성능이 가장 좋았으며 I380K라는 내 large-scale dataset으로 실험해본 결과 3D ConvNet이 2D ConvNet보다 성능이 더 좋았다.
@@ -85,7 +85,7 @@
 - 아키텍처 서칭에서 3x3 homogeneous depth-3가 가장 성능이 좋았음을 확인했다.
 - 위와 같은 구조로 8 conv layer, 5 pooling layer, 2 f.c layer, sortmax layer로 네트워크를 구성하였다.
 
-![C3D/Untitled%202.png](C3D/Untitled%202.png)
+![C3D/Untitled%202.png](./images/C3D/Untitled 2.png)
 
 - 위와 같은 구조의 네트워크를 C3D라 부른다.
     - 모든 conv layer에서 3x3x3 kernel, 1x1x1 stride를 사용한다.
@@ -99,7 +99,7 @@
 
     ⇒ ?
 
-![C3D/Untitled%203.png](C3D/Untitled%203.png)
+![C3D/Untitled%203.png](./images/C3D/Untitled 3.png)
 
 - 실험 결과에서 다른 모델과 비교할 때 고려해야 할 점
     - Deep Video는 clip 당 4번 crop하고 video 당 80번 crop한다. 이에 반해 C3D는 clip당 1번 crop하고 video당 10번 crop한다는 점
@@ -107,7 +107,7 @@
 - 그러나 [29] 모델보다 성능이 낮은데 그 이유는 해당 비교 모델은 한 clip이 120 frame이기 때문에 성능이 좋을 수밖에 없고 상대적으로 적은 수의 frame을 1 clip으로 사용하는 C3D와 직접적으로 비교하기에는 무리가 있다.
 - 이렇게 학습된 C3D는 다른 비디오 task에서 feature extractor로 사용될 수 있음
 
-![C3D/Untitled%204.png](C3D/Untitled%204.png)
+![C3D/Untitled%204.png](./images/C3D/Untitled 4.png)
 
 - C3D는 무엇을 학습하는지 이해하고자 deconvolution method를 사용하였음. 그 결과, 초기 프레임에서는 appearance를 이후 프레임에서는 salient motion에 집중한다는 것을 알게됨
 - 처음에는 사람 전체의 모습에 focus하다가 그 이후에는 motion에 focus
@@ -115,7 +115,7 @@
 
 - 또한 C3D를 "Action recognition", "Action Similarity Labeling", "Scene and Object Recognition"에 적용해봤을 때도 매우 우수한 성능을 보여줌
 
-![C3D/Untitled%205.png](C3D/Untitled%205.png)
+![C3D/Untitled%205.png](./images/C3D/Untitled 5.png)
 
 # Conclusions
 
