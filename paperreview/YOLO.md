@@ -1,3 +1,12 @@
+---
+layout: page
+title: Advanced
+description: >
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+hide_description: false
+---
+
+
 # YOLO
 
 Status: finished
