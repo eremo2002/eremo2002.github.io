@@ -21,7 +21,7 @@ or [upgrades for PRO buyers](upgrade.md#pro-version).
 {:.related-posts.faded}
 
 ## Video Recognition
-{:.related-posts.faded}
+
 
 ## Other
 * [LICENSE]{:.heading.flip-title} --- The license of this project.
