@@ -42,13 +42,13 @@ URL: https://static.googleusercontent.com/media/research.google.com/ko//pubs/arc
 - 네트워크 내에서 sparsity를 높이고 Dense한 Matrix 연산을 통해 컴퓨터가 효율적으로 연산하게 한다.
 - 네트워크의 sparse 구조가 더 성능이 높다. (Dropout), 그러나 컴퓨터의 연산은 Dense할수록 빠르다는 특징이 있다. 두가지 특징을 잘 고려하여 설계한 것이 Inception module
 
-![GoogLeNet/Untitled.png](GoogLeNet/Untitled.png)
+![GoogLeNet/Untitled.png](./images/GoogLeNet/Untitled.png)
 
-![GoogLeNet/Untitled%201.png](GoogLeNet/Untitled%201.png)
+![GoogLeNet/Untitled%201.png](./images/GoogLeNet/Untitled 1.png)
 
 - 위와 같은 구조에서 computational cost가 너무 커진다는 문제가 있음 이를 보완하기 위해 3x3, 5x5 conv 이전에 1x1 conv를 사용하여 channel 수를 조절하도록 함
 
-![GoogLeNet/Untitled%202.png](GoogLeNet/Untitled%202.png)
+![GoogLeNet/Untitled%202.png](./images/GoogLeNet/Untitled 2.png)
 
 # GoogLeNet
 
@@ -57,9 +57,9 @@ URL: https://static.googleusercontent.com/media/research.google.com/ko//pubs/arc
 - 전체 레이어는 22개로 구성(pooling 포함하면 27개),  block 내부까지 일일이 다 계산하면 대략 100개
 - f.c layer만 사용하는 게 아니라 average pooling도 사용, top-1 acc 개선됨
 
-![GoogLeNet/Untitled%203.png](GoogLeNet/Untitled%203.png)
+![GoogLeNet/Untitled%203.png](./images/GoogLeNet/Untitled 3.png)
 
-![GoogLeNet/Untitled%204.png](GoogLeNet/Untitled%204.png)
+![GoogLeNet/Untitled%204.png](./images/GoogLeNet/Untitled 4.png)
 
 - auxiliary classifier를 네트워크 중간에 삽입하여, lower stage에서도 back-propagation이 잘 이루어지도록 함
 - Inception에서는 네트워크가 매우 깊기 때문에 Gradient Vanishing 같은 문제가 발생할 수 있다. 이러한 문제를 방지하기 위해 네트워크 중간에 2개의 auxiliary classifier를 두어 네트워크 중간에서도 Back propagation을 하였다.
@@ -84,12 +84,12 @@ URL: https://static.googleusercontent.com/media/research.google.com/ko//pubs/arc
 - Classification performance, GoogLeNet이 SOTA를 달성함
 - 2012년에 제안된 SuperVision보다 error rate을 절반이상 줄임
 
-![GoogLeNet/Untitled%205.png](GoogLeNet/Untitled%205.png)
+![GoogLeNet/Untitled%205.png](./images/GoogLeNet/Untitled 5.png)
 
 - 모델의 개수, crop수를 다르게 하여 비교한 결과
 - 단일 모델의 경우 top-1 validation error rate이 제일 낮은 모델을 선택함
 
-![GoogLeNet/Untitled%206.png](GoogLeNet/Untitled%206.png)
+![GoogLeNet/Untitled%206.png](./images/GoogLeNet/Untitled 7.png)
 
 # Conclusions
 
