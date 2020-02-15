@@ -17,13 +17,13 @@ permalink: /paperreview/
 
 ## Video Recognition
 
-
+<!--
 ## Other
 * [LICENSE]{:.heading.flip-title} --- The license of this project.
 * [NOTICE]{:.heading.flip-title} --- Parts of this program are provided under separate licenses.
 * [CHANGELOG]{:.heading.flip-title} --- Version history of Hydejack.
 {:.related-posts.faded}
-
+-->
 
 
 
@@ -33,6 +33,7 @@ permalink: /paperreview/
 [VGG]: VGG.md
 [GoogLeNet]: GoogLeNet.md
 [ResNet]: ResNet.md
+
 <!--
   [LICENSE]: ../LICENSE.md
   [NOTICE]: ../NOTICE.md
