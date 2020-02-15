@@ -126,7 +126,9 @@
 - ILSVRC-2010 test set 결과, top-1, top-5 error에서 SOTA 달성
 
 ![Untitled 11.png](./images/AlexNet/Untitled 11.png)
-
+<br/>
+<br/>
+<br/>
 - ILSVRC-2012 validation, test 결과
 
 ![Untitled 12.png](./images/AlexNet/Untitled 12.png)
@@ -142,7 +144,10 @@
 - 컬러정보와 무관한 edge를 검출하는 경우 / 이미지의 color pattern을 뽑아내는 경우
 
     ![Untitled 13.png](./images/AlexNet/Untitled 13.png)
-
+<br/>
+<br/>
+<br/>
+    ![Untitled 14.png](./images/AlexNet/Untitled 14.png)
 - Figure 4의 Left, 대체적으로 top-5 prediction에서 정답 class가 포함되어있음
 - 또한 top-prediction의 label들 역시 정답 class와 비슷한 클래스로 예측함
 - object가 이미지 중앙에 없는 경우도 잘 예측함
@@ -150,7 +155,7 @@
     - test, train 두 이미지의 feature activation vector(4096차원)를 추출한 뒤 Euclidean Distance가 작은 것을 선택. (4096차원의 vector끼리 L2 distance를 일일이 계산하는 건 너무 비효율적이기 때문에 실제로는 binary code로 압축해서 수행함)
     - 실제 이미지의 픽셀 level에선 test 이미지와 선택된 train 이미지의 L2 Distance는 작지 않다. 예를 들면, 코끼리, 강아지 사진을 보면 같은 object일지라도 pose의 형태가 다양하기 때문이다. 그럼에도 불구하고 같은 class의 이미지를 잘 뽑아내는 것을 보면 visual knowledge가 잘 학습된 것을 의미함
 
-![Untitled 14.png](./images/AlexNet/Untitled 14.png)
+
 
 # 7. Discussion
 
