@@ -71,7 +71,9 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 - 기존 모델 B에서 3x3 conv 2개를  5x5 1개로 바꿔봤음, 그러나 오히려 error가 더 높게 나옴. 즉, small filter를 사용하는 것이 더 outperform
 - training image에 scale jittering을 사용했을 때 성능이 더 높았음
     - scale jittering이란 이미지의 크기를 256 or 384 같은 고정된 크기로 조절하거나 [256; 512] 같은 특정 범위의 사이즈로 조절한 뒤 CNN의 입력 사이즈(224x224)에 맞게 무작위로 cropping하는 것
-
+<br/>
+<br/>
+<br/>
 - 이번에는 test image에 scale jittering을 사용하여 multi scale image에 대한 evaluation
 
     ![VGG/Untitled%205.png](./images/VGG/Untitled 5.png)
@@ -80,7 +82,9 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 - train image = Q, test image = S이며 Q=S라고 했을 때, Q = {S-32, S, S+32}의 3가지 scale로 test image의 사이즈를 조절함
 - Table 4에서 볼 수 있는 것처럼 multiple scale test image를 사용했을 때 성능이 증가함
 - Table 4에서 모델 D의 마지막 결과를 보면 training & testing 과정에서 scale jittering을 적용한 것이 가장 성능이 좋았음. 왜냐하면 네트워크가 testing에서 들어오는 다양한 scale의 이미지를 트레이닝 과정에서 학습할 수 있기 때문
-
+<br/>
+<br/>
+<br/>
 - 지금까지의 실험에선 단일 모델을 가지고 평가했지만 이번에는 여러 모델의 output을 combine하여 평가함. combine 과정은 단순하게 각 class에 대한 확률값을 평균내어 사용함
 
     ![VGG/Untitled%206.png](./images/VGG/Untitled 6.png)
@@ -89,6 +93,9 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 - 7개의 모델을 combine 했을 때  error rate이 더 줄어듦
 - 7개의 모델이 내는 예측 값을 단순하게 평균낸 것이 아니라 각 모델마다 가중치를 두고 반영함. 어떤 모델의 신뢰도가 더 높은지 평가하는 기준은 top-5 validation error를 보고 판단함. 모델 C보다는 모델 E가 성능이 좀 더 좋다고 보기 때문에 모델 C와 E의 가중치를 서로 다르게 두는 것.
 
+<br/>
+<br/>
+<br/>
 - ILSVRC-2014 classification result
 
 ![VGG/Untitled%207.png](./images/VGG/Untitled 7.png)
@@ -118,16 +125,23 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 
 - first two f.c layer를 fine-tuning하는 것보다 모든 레이어를 fine-tuning하는 것이 더 좋음
 
+<br/>
+<br/>
+<br/>
 - multiple scale image로 학습하고 테스트 하는 것이 더 성능이 높다.
 
     ![VGG/Untitled%209.png](./images/VGG/Untitled 9.png)
-
+<br/>
+<br/>
+<br/>
 - localization task에서 VGG를 다른 모델과 비교
 
     ![VGG/Untitled%2010.png](./images/VGG/Untitled 10.png)
 
 - top-5 test error가 25.3%로 최고 성능을 달성함.
-
+<br/>
+<br/>
+<br/>
 - 다양한 image classification 데이터셋에서 SOTA를 찍었던 모델들과의 성능 비교
 
 ![VGG/Untitled%2011.png](./images/VGG/Untitled 11.png)
