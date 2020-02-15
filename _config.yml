@@ -113,7 +113,7 @@ defaults:
       accent_color:    rgb(38,139,210)
       accent_image:
         background:    rgb(32,32,32)
-        overlay:       true
+        overlay:       false
 
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
