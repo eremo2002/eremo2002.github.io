@@ -1,8 +1,3 @@
-# GoogLeNet
-
-Status: finished
-URL: https://static.googleusercontent.com/media/research.google.com/ko//pubs/archive/43022.pdf
-
 # Going Deeper with Convolutions
 
 # Abstract
