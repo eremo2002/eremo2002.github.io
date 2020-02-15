@@ -17,6 +17,9 @@
         - Layer를 더 많이 사용했는데 degradation으로 인해 오히려 error가 더 높음
 
 ![ResNet/Untitled.png](./images/ResNet/Untitled.png)
+<br/>
+<br/>
+<br/>
 
 - 네트워크의 depth를 늘리는 것은 이러한 degradation 문제를 일으킨다. degradation문제는 모델의 오버피팅으로 인해 발생하는 것이 아니라 레이어를 더 많이 쌓아올려 모델의 training error가 더 커지게 만든다. 즉 degradation은 training 과정에서 네트워크를 최적화하기 어렵게 만든다고 볼 수 있다.
 - shallower 모델과 deeper 모델을 가정했을 때 deeper model에 제안하는 identity mapping 레이어를 추가하면 deeper model의 성능이 shallower model보다 더 높아질 수 있다.
@@ -59,7 +62,10 @@ $$y = F(x, {W_i}) + W_sx.\qquad (2)$$
     2. 1x1 convolution을 이용하여 dimension을 맞춰줌. (shortcut connection으로 오는 x에 1x1 conv를 사용하여 dimension matching하는 걸 projection shortcut이라 부름)
 
 ![ResNet/Untitled%203.png](./images/ResNet/Untitled 3.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - ResNet 아키텍처 구조
 
 ![ResNet/Untitled%204.png](./images/ResNet/Untitled 4.png)
