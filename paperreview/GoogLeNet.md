@@ -84,7 +84,7 @@
 - 모델의 개수, crop수를 다르게 하여 비교한 결과
 - 단일 모델의 경우 top-1 validation error rate이 제일 낮은 모델을 선택함
 
-![GoogLeNet/Untitled%206.png](./images/GoogLeNet/Untitled 7.png)
+![GoogLeNet/Untitled%206.png](./images/GoogLeNet/Untitled 6.png)
 
 # Conclusions
 
