@@ -56,7 +56,7 @@ menu:
   - title:             Hydejack
     url:               /hydejack/
   - title:             PaperReview
-    url:               /paperreview
+    url:               /paperreview/
   - title:             Hyde
     url:               /hyde/
   - title:             Docs
