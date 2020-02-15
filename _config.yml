@@ -78,7 +78,7 @@ copyright:             © 2018. All rights reserved.
 permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              10
+paginate:              3
 paginate_path:         /page-:num/
 
 
@@ -312,7 +312,7 @@ plugins:
 #   name:                <firstname> <lastname>
 #   links:
 #     - https://twitter.com/<username>
-#     - https://github.com/<username>
+    - https://github.com/<eremo2002>
 
 
 # Other Plugins
