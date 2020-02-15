@@ -10,6 +10,7 @@ permalink: /paperreview/
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
 * [AlexNet]{:.heading.flip-title} --- ImageNet Classification with Deep Convolutional Neural Networks
 * [VGG]{:.heading.flip-title} --- Very Deep Convolutional Networks for Large-Scale Image Recognition
+* [GoogLeNet]{:.heading.flip-title} --- Going Deeper with Convolutions
 {:.related-posts.faded}
 
 ## Video Recognition
@@ -28,7 +29,7 @@ permalink: /paperreview/
 [yolov1]: YOLOv1.md
 [AlexNet]: AlexNet.md
 [VGG]: VGG.md
-
+[GoogLeNet]: GoogLeNet.md
 
 <!--
   [LICENSE]: ../LICENSE.md
