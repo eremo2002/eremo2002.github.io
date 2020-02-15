@@ -45,8 +45,8 @@ logo:                  /assets/icons/icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
-  name:                <firstname> <lastname>
-  email:               eremo2002@naver.com
+#   name:                <firstname> <lastname>
+#   email:               eremo2002@naver.com
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
@@ -312,7 +312,7 @@ plugins:
 social:
   name:                <firstname> <lastname>
   links:
-    - https://twitter.com/<1234>
+#     - https://twitter.com/<1234>
     
 
 
