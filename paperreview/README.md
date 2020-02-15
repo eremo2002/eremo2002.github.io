@@ -12,10 +12,14 @@ permalink: /paperreview/
 * [VGG]{:.heading.flip-title} --- Very Deep Convolutional Networks for Large-Scale Image Recognition
 * [GoogLeNet]{:.heading.flip-title} --- Going Deeper with Convolutions
 * [ResNet]{:.heading.flip-title} --- Deep Residual Learning for Image Recognition
-
 {:.related-posts.faded}
 
+
 ## Video Recognition
+* [C3D]{:.heading.flip-title} --- Learning Spatiotemporal Features with 3D Convolutional networks
+{:.related-posts.faded}
+
+
 
 <!--
 ## Other
@@ -33,6 +37,11 @@ permalink: /paperreview/
 [VGG]: VGG.md
 [GoogLeNet]: GoogLeNet.md
 [ResNet]: ResNet.md
+
+
+
+[C3D]: C3D.md
+
 
 <!--
   [LICENSE]: ../LICENSE.md
