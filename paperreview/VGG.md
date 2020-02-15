@@ -1,7 +1,3 @@
-# VGG
-
-Status: finished
-URL: https://arxiv.org/abs/1409.1556
 
 # Very Deep Convolutional Networks for Large-Scale Image Recognition
 
@@ -21,7 +17,7 @@ URL: https://arxiv.org/abs/1409.1556
 - 3x3 conv를 사용한다. Why?
     - left, right, up, down, center 방향을 모두 capture할 수 있는 가장 작은 사이즈의 커널이기 때문
 
-        ![VGG/Untitled.png](VGG/Untitled.png)
+        ![VGG/Untitled.png](./images/VGG/Untitled.png)
 
     - 1x1 conv를 사용하는 버전도 있음 1x1 conv에서 채널 수를 변경하지 않으며, 입력 channel의 linear transformation으로 볼 수 있음
 - padding, stride를 1로 주어, 모든 conv layer에서 spatial resolution이 보존됨
@@ -34,9 +30,9 @@ URL: https://arxiv.org/abs/1409.1556
 
 ### Architecture
 
-![VGG/Untitled%201.png](VGG/Untitled%201.png)
+![VGG/Untitled%201.png](./images/VGG/Untitled 1.png)
 
-![VGG/Untitled%202.png](VGG/Untitled%202.png)
+![VGG/Untitled%202.png](./images/VGG/Untitled 2.png)
 
 - layer가 많은 네트워크일지라도 파라미터 수 차이가 크게 나지 않는다.
 
@@ -47,7 +43,7 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 - 11x11, 7x7의 large receptive field를 사용했던 것에 비해 상대적으로 매우 작은 크기의 3x3 receptive filed를 사용하였다.
 - 5x5 conv는 3x3 conv 두 번 사용한 것과 같은 receptive filed를 가지며, 7x7 conv는 3x3 conv를 세 번 사용한 것과 같은 receptive filed를 가진다.
 
-![VGG/Untitled%203.png](VGG/Untitled%203.png)
+![VGG/Untitled%203.png](./images/VGG/Untitled 3.png)
 
 [https://www.researchgate.net/figure/The-receptive-field-of-each-convolution-layer-with-a-3-3-kernel-The-green-area-marks_fig4_316950618](https://www.researchgate.net/figure/The-receptive-field-of-each-convolution-layer-with-a-3-3-kernel-The-green-area-marks_fig4_316950618)
 
@@ -64,7 +60,7 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 
 - single scale을 사용한 evaluation으로 train image와 test image의 size가 고정되어 동일한 경우
 
-![VGG/Untitled%204.png](VGG/Untitled%204.png)
+![VGG/Untitled%204.png](./images/VGG/Untitled 4.png)
 
 - Local Response Normalization을 사용했을 때 오히려 error rate이 더 높았다. 이로 인해, 모델 B부터는 LRN을 적용하지 않았다.
 - 네트워크의 depth가 깊어질수록(layer 수 증가) 성능이 향상되었다.
@@ -78,7 +74,7 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 
 - 이번에는 test image에 scale jittering을 사용하여 multi scale image에 대한 evaluation
 
-    ![VGG/Untitled%205.png](VGG/Untitled%205.png)
+    ![VGG/Untitled%205.png](./images/VGG/Untitled 5.png)
 
 - train image와 test image간의 scale이 너무 차이나면 오히려 성능이 떨어질 수 있으므로 크게 차이나지 않는 범위에서 scale을 조정함
 - train image = Q, test image = S이며 Q=S라고 했을 때, Q = {S-32, S, S+32}의 3가지 scale로 test image의 사이즈를 조절함
@@ -87,7 +83,7 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 
 - 지금까지의 실험에선 단일 모델을 가지고 평가했지만 이번에는 여러 모델의 output을 combine하여 평가함. combine 과정은 단순하게 각 class에 대한 확률값을 평균내어 사용함
 
-    ![VGG/Untitled%206.png](VGG/Untitled%206.png)
+    ![VGG/Untitled%206.png](./images/VGG/Untitled 6.png)
 
 - Table 5에서 second row를 보면 scale jittering이 서로 다른 D 모델 3개를 조합함. 그 결과 단일 모델로 D를 사용했을 때 25.9%, 8.0%의 error를 냈던 결과에 비해 25.3%, 7.8%로 더 높은 성능을 냄
 - 7개의 모델을 combine 했을 때  error rate이 더 줄어듦
@@ -95,7 +91,7 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 
 - ILSVRC-2014 classification result
 
-![VGG/Untitled%207.png](VGG/Untitled%207.png)
+![VGG/Untitled%207.png](./images/VGG/Untitled 7.png)
 
 - 제안하는 네트워크가 single net 기준으로 SOTA
 - 이전 우승자들의 성능을 모두 이김
@@ -118,23 +114,23 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 
 - SCR(single-class regression), PCR(per-class regression)
 
-![VGG/Untitled%208.png](VGG/Untitled%208.png)
+![VGG/Untitled%208.png](./images/VGG/Untitled 8.png)
 
 - first two f.c layer를 fine-tuning하는 것보다 모든 레이어를 fine-tuning하는 것이 더 좋음
 
 - multiple scale image로 학습하고 테스트 하는 것이 더 성능이 높다.
 
-    ![VGG/Untitled%209.png](VGG/Untitled%209.png)
+    ![VGG/Untitled%209.png](./images/VGG/Untitled 9.png)
 
 - localization task에서 VGG를 다른 모델과 비교
 
-    ![VGG/Untitled%2010.png](VGG/Untitled%2010.png)
+    ![VGG/Untitled%2010.png](./images/VGG/Untitled 10.png)
 
 - top-5 test error가 25.3%로 최고 성능을 달성함.
 
 - 다양한 image classification 데이터셋에서 SOTA를 찍었던 모델들과의 성능 비교
 
-![VGG/Untitled%2011.png](VGG/Untitled%2011.png)
+![VGG/Untitled%2011.png](./images/VGG/Untitled 11.png)
 
 - *(asterisk) 달린 모델은 class 2000개짜리 ILSVRC dataset으로 pre-training시킨 모델
 - 기존 모델들과 비교했을 때 VOC-2007, VOC-2012, Caltech-256 dataset에서 기존 SOTA를 달성했던 모델보다 더 높은 성능을 보여주었으며 Caltech-101 dataset의 경우에도 competitive한 결과를 보여줌
@@ -145,78 +141,3 @@ VGG의 네트워크 구조가 기존의 ImageNet 2012, 2014 sota였던 AlexNet, 
 - Object localization challenge에서도 SOTA
 - 네트워크의 depth는 classification accuracy에 beneficial한 요소이며 visual representation 측면에서도 매우 중요함
 
-    import tensorflow as tf
-    
-    
-    
-    class VGG16(tf.keras.Model):
-        def __init__(self, nb_classes):
-            super(VGG16, self).__init__()
-    
-            self.nb_class = nb_classes
-            
-            self.conv1_1 = tf.keras.layers.Conv2D(64, (3, 3), padding='same', activation='relu')
-            self.conv1_2 = tf.keras.layers.Conv2D(64, (3, 3), padding='same', activation='relu')
-            self.max_pool1 = tf.keras.layers.MaxPooling2D((2, 2), strides=(2, 2))
-            
-            self.conv2_1 = tf.keras.layers.Conv2D(128, (3, 3), padding='same', activation='relu')
-            self.conv2_2 = tf.keras.layers.Conv2D(128, (3, 3), padding='same', activation='relu')
-            self.max_pool2 = tf.keras.layers.MaxPooling2D((2, 2), strides=(2, 2))
-    
-            self.conv3_1 = tf.keras.layers.Conv2D(256, (3, 3), padding='same', activation='relu')
-            self.conv3_2 = tf.keras.layers.Conv2D(256, (3, 3), padding='same', activation='relu')
-            self.conv3_3 = tf.keras.layers.Conv2D(256, (3, 3), padding='same', activation='relu')
-            self.max_pool3 = tf.keras.layers.MaxPooling2D((2, 2), strides=(2, 2))
-    
-            self.conv4_1 = tf.keras.layers.Conv2D(512, (3, 3), padding='same', activation='relu')
-            self.conv4_2 = tf.keras.layers.Conv2D(512, (3, 3), padding='same', activation='relu')
-            self.conv4_3 = tf.keras.layers.Conv2D(512, (3, 3), padding='same', activation='relu')
-            self.max_pool4 = tf.keras.layers.MaxPooling2D((2, 2), strides=(2, 2))
-    
-            self.conv5_1 = tf.keras.layers.Conv2D(512, (3, 3), padding='same', activation='relu')
-            self.conv5_2 = tf.keras.layers.Conv2D(512, (3, 3), padding='same', activation='relu')
-            self.conv5_3 = tf.keras.layers.Conv2D(512, (3, 3), padding='same', activation='relu')
-            self.max_pool5 = tf.keras.layers.MaxPooling2D((2, 2), strides=(2, 2))
-    
-            self.flat = tf.keras.layers.Flatten()
-            self.dense1 = tf.keras.layers.Dense(4096, activation='relu')
-            self.dense2 = tf.keras.layers.Dense(4096, activation='relu')
-            self.dense3 = tf.keras.layers.Dense(nb_classes, activation='relu')
-    
-        def call(self, x, training=False):
-            
-            x = self.conv1_1(x)
-            x = self.conv1_2(x)
-            x = self.max_pool1(x)
-    
-            x = self.conv2_1(x)
-            x = self.conv2_2(x)
-            x = self.max_pool2(x)
-    
-            x = self.conv3_1(x)
-            x = self.conv3_2(x)
-            x = self.conv3_3(x)
-            x = self.max_pool3(x)
-    
-            x = self.conv4_1(x)
-            x = self.conv4_2(x)
-            x = self.conv4_3(x)
-            x = self.max_pool4(x)
-    
-            x = self.conv5_1(x)
-            x = self.conv5_2(x)
-            x = self.conv5_3(x)
-            x = self.max_pool5(x)
-    
-            x = self.flat(x)
-            x = self.dense1(x)
-            x = self.dense2(x)
-            x = self.dense3(x)
-    
-            return x
-        
-    
-    
-    model = VGG16(1000)
-    model.build((1, 224, 224, 3))
-    model.summary()
