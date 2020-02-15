@@ -10,7 +10,7 @@ permalink: /paperreview/
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
 * [AlexNet]{:.heading.flip-title} --- ImageNet Classification with Deep Convolutional Neural Networks
 * [VGG]{:.heading.flip-title} --- Very Deep Convolutional Networks for Large-Scale Image Recognition
-
+* [GoogLeNet]{:.heading.flip-title} --- Going Deeper with Convolutions
 * [ResNet]{:.heading.flip-title} --- Deep Residual Learning for Image Recognition
 
 {:.related-posts.faded}
