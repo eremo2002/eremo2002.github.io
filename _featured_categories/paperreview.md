@@ -1,6 +1,6 @@
 ---
 layout: list
-title: PaperReview
+title: Paper Review
 slug: paperreview
 menu: true
 order: 2
