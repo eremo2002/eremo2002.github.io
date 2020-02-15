@@ -86,7 +86,7 @@ paginate_path:         /page-:num/
 # ========================================================================================
 
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar-bg.jpg
+accent_image:          /assets/img/winter.jpg
 accent_color:          rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
@@ -113,7 +113,7 @@ defaults:
       accent_color:    rgb(38,139,210)
       accent_image:
         background:    rgb(32,32,32)
-        overlay:       false
+        overlay:       true
 
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
