@@ -300,10 +300,6 @@ plugins:
 # # Used for Twitter cards
 # twitter:
 #   username:            <shortname>
-
-email:                  eremo2002@naver.com
-github:                 eremo2002  
-linkedin:               eremo2002
   
   
 # Used for Facebook open graph
@@ -313,10 +309,10 @@ linkedin:               eremo2002
 #   admins:              <id>
 
 # Used on index and about sites
-# social:
-#   name:                <firstname> <lastname>
-#   links:
-#     - https://twitter.com/<username>
+social:
+  name:                <firstname> <lastname>
+  links:
+    - https://twitter.com/<1234>
     
 
 
