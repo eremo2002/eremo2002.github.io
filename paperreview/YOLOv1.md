@@ -1,9 +1,3 @@
----
-layout: page
-title: You Only Look Once: Unified, Real-Time Object Detection
-hide_description: false
----
-
 # You Only Look Once: Unified, Real-Time Object Detection
 
 # Abstract
@@ -82,42 +76,65 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 - final output은 7x7x30 tensor이며 각 grid cell은 2개의 bounding box 좌표와 20개 class score
 
 ![Untitled 3.png](images/YOLOv1/Untitled 3.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 2개의 bounding box의 중 무엇을 선택할지는 confidence score를 보고 결정함
 - 각 bounding box의 confidence score와 class 확률값을 모두 곱하여 20x1 vector를 구함
 - 7x7 grid cell에 총 98개의 bounding box가 만들어지므로 이런식으로 20x1 vector를 98개 구함
 
 ![Untitled 4.png](images/YOLOv1/Untitled 4.png)
+<br/>
 
+<br/>
 ![Untitled 5.png](images/YOLOv1/Untitled 5.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 예를 들어, 20x1 vector에서 첫번째 원소가 Dog class라고 하면 98개의 bbox에서 dog class에 대한 class 값이 다 들어있을 것이다.
 - dog class에 대한 98개의 확률값들 중에서 thresh를 넘지 못하는 값은 0으로 값을 바꾼다.
 - 98개의 확률값에 대해 내림차순으로 정렬한다.
 - 내림차순 정렬 후 NMS 알고리즘을 적용하여 98개의 값들 중 최종 후보 1개만 선택한다.
 
 ![Untitled 6.png](images/YOLOv1/Untitled 6.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - Non-maximum Suppression 알고리즘이 어떻게 작동하는지 알아본다.
 - 임계치를 넘지 못하는 값은 0으로 만들고 내림차순 정렬하면 아래와 같이 정렬될 것이다.
 - 여기서 bbox_max(확률값이 가장 높은 box)를 다른 bbox(0이 아닌 box)들과 모두 비교하며 다른 bbox들을 지워나간다.
 
 ![Untitled 7.png](images/YOLOv1/Untitled 7.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - bbox_max와 bbox_cur(bbox_max와 비교하려는 현재 bbox) 사이의 IOU를 계산하고 만약 이 값이 0.5가 넘으면 서로 같은 class를 예측한 것으로 보고 bbox_cur의 확률 값을 0으로 만들어준다.
 
 ![Untitled 8.png](images/YOLOv1/Untitled 8.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - bbox_max를 다음 bbox_cur과 다시 비교한다.
 - 만약 IOU값이 0.5보다 작으면 서로 다른 class를 예측한 것으로 보고 bbox_cur의 확률값을 살려둔다.
 
 ![Untitled 9.png](images/YOLOv1/Untitled 9.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 위에서 파란색 bb15는 기존의 bbox_max(bb47)와 비교했을 때 IOU가 0.5가 안 넘어서 살려뒀던 box이다. bb15도 똑같이 dog class를 예측했지만 bb47이 예측한 dog와 다른 곳에 있는 dog를 예측한 것으로 보기 때문에 살려둔 것이다.
 - 그래서 bb15가 새로운 bbox_max가 되고 이를 뒤에 있는 bbox들과 다시 비교하며 걸러낸다.
 
 ![Untitled 10.png](images/YOLOv1/Untitled 10.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 이런식으로 모든 class에 대해 NMS 알고리즘을 수행하면 98개의 bbox에서 각 class에 대한 확률값을 같게 될 것이다.
 - YOLO에선 하나의 bounding box가 하나의 object만 찾기 때문에 bbox에 들어있는 값들 중 어떤 값을 최종 prediction으로 선택할 건지 골라야 한다.
 - 각 bounding box에서 최종 prediction을 선택하는 방법은 다음과 같다.
@@ -126,7 +143,10 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
     3. 만약 예측 class의 score가 임계치보다 작으면 해당 bounding box는 object를 검출하지 못한 것으로 간주하고 skip한다.
 
 ![Untitled 11.png](images/YOLOv1/Untitled 11.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 위의 작업을 거치면 98개의 bounding box중에서 최종적으로 선택된 box가 아래처럼 그려진다.
 
 ![Untitled 12.png](images/YOLOv1/Untitled 12.png)
