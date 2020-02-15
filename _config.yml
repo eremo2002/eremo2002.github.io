@@ -56,8 +56,8 @@ menu:
 #     url:               /hydejack/
   - title:             Paper Review
     url:               /paperreview/
-  - title:             Test
-    url:               /test/
+#   - title:             Test
+#     url:               /test/
 #   - title:             Docs
 #     url:               /docs/
 #   - title:             About
