@@ -80,7 +80,9 @@
 - 2012년에 제안된 SuperVision보다 error rate을 절반이상 줄임
 
 ![GoogLeNet/Untitled%205.png](./images/GoogLeNet/Untitled 5.png)
-
+<br/>
+<br/>
+<br/>
 - 모델의 개수, crop수를 다르게 하여 비교한 결과
 - 단일 모델의 경우 top-1 validation error rate이 제일 낮은 모델을 선택함
 
