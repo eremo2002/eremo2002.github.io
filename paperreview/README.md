@@ -8,6 +8,7 @@ permalink: /paperreview/
 
 ## Classification & Detection
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
+* [AlexNet]{:.heading.flip-title} --- ImageNet Classification with Deep Convolutional Neural Networks
 {:.related-posts.faded}
 
 ## Video Recognition
@@ -20,7 +21,7 @@ permalink: /paperreview/
 {:.related-posts.faded}
 
 [yolov1]: YOLOv1.md
-
+[AlexNet]: AlexNet.md
 
 [LICENSE]: ../LICENSE.md
 [NOTICE]: ../NOTICE.md
