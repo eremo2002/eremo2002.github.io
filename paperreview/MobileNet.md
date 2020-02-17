@@ -31,7 +31,7 @@
 - standard conv 대신 이러한 factorization conv를 사용하면 computation cost와 model size를 많이 줄일 수 있다.
 - Figure 2는 standard convolution layer와 depthwise conv, 1x1 convolution의 차이
 
-    ![MobileNet/Untitled.png](MobileNet/Untitled.png)
+    ![MobileNet/Untitled.png](./images/MobileNet/Untitled.png)
 
 - **Standard Convolution**
     - Output feature map G (standard convolution)
@@ -73,12 +73,12 @@
 
 - MobileNet 아키텍처
 
-    ![MobileNet/Untitled%201.png](MobileNet/Untitled%201.png)
+    ![MobileNet/Untitled%201.png](./images/MobileNet/Untitled 1.png)
 
 - 첫번째 conv layer에서는 일반적인 conv 사용하고 그 이후는 모두 dw conv
 - Conv layer이후 BN+ ReLU사용
 
-    ![MobileNet/Untitled%202.png](MobileNet/Untitled%202.png)
+    ![MobileNet/Untitled%202.png](./images/MobileNet/Untitled 2.png)
 
 - Donw sampling은 first conv 레이어와 stride가 2인 dw conv에서 이루어짐
 
@@ -86,14 +86,14 @@
 - 실제 컴퓨터에선 sparse matrix 연산보다 dense matrix 연산이 더 빠르다. MobileNet에서 각 레이어가 차지하는 연산 중 90% 이상이 dense한 1x1 conv로 이루어져있기 때문에 MobileNet은 최적화된 general matrix multiply function으로 구현될 수 있음
 - for문을 사용하지 않고 컨볼루션 연산을 효율적으로 구현하기 위해 3차원을 2차원 matrix로 변환하여 계산함.
 
-    ![MobileNet/Untitled%203.png](MobileNet/Untitled%203.png)
+    ![MobileNet/Untitled%203.png](./images/MobileNet/Untitled 3.pngg)
 
 - 위와 같은 방법은 feature map과 filter를 GEMM(General Matrix Multiply)연산을 위해 메모리를 reordering하는 작업이 필요함
 - 그러나 1x1 convolution은 reordering이 필요 없으며 directly하게 GEMM을 적용할 수 있음
 
 - MobileNet의 레이어에서 발생하는 연산량과 파라미터 비중
 
-    ![MobileNet/Untitled%204.png](MobileNet/Untitled%204.png)
+    ![MobileNet/Untitled%204.png](./images/MobileNet/Untitled 4.png)
 
 - MobileNet은 TensorFlow, RMSProp을 사용하였으며 모델을 학습시킬 때 regularization이나 data augmentation 같은 테크닉을 많이 사용하지 않음.
 - 상대적으로 small model이기 때문에 오버피팅이 일어날 가능성이 더 적기 때문.
@@ -126,7 +126,7 @@
 
 - 제안하는 하이퍼 파라미터인 width & resolution multiplier를 사용했을 때 cost
 
-    ![MobileNet/Untitled%205.png](MobileNet/Untitled%205.png)
+    ![MobileNet/Untitled%205.png](./images/MobileNet/Untitled 5.png)
 
 # Experiments
 
@@ -134,13 +134,13 @@
 
 - MobileNet에서 standard conv를 썼을 때와 dw conv 사용한 모델 비교
 
-    ![MobileNet/Untitled%206.png](MobileNet/Untitled%206.png)
+    ![MobileNet/Untitled%206.png](./images/MobileNet/Untitled 6.png)
 
 - 정확도는 약 1% 정도 차이나지만 연산량, 파라미터 수에서 cost가 많이 줄어듦
 
 - Width Multiplier를 적용했을 때와 그냥 레이어 수만 줄인 Shallow MobileNet과의 비교
 
-    ![MobileNet/Untitled%207.png](MobileNet/Untitled%207.png)
+    ![MobileNet/Untitled%207.png](./images/MobileNet/Untitled 7.png)
 
 - Shallow model은 baseline MobileNet에서 layer 5개 뺀 거
 - 연산량과 파라미터 수는 얼추 비슷하게 맞춤. 따라서 efficient model을 만들기 위해선 레이어 수를 줄이는 것이 아니라 우리가 제안하는 width multiplier를 사용하는 것이 더 좋다.
@@ -149,19 +149,19 @@
 
 - Input resolution은 그대로 두고 Width Multiplier 사용했을 때 비교
 
-    ![MobileNet/Untitled%208.png](MobileNet/Untitled%208.png)
+    ![MobileNet/Untitled%208.png](./images/MobileNet/Untitled 8.png)
 
 - Width Multiplier 값이 작아질 수록 accuracy가 줄어듦
 
 - Width Multiplier는 그대로 두고 Resolution Multiplier를 다르게 줬을 때
 
-    ![MobileNet/Untitled%209.png](MobileNet/Untitled%209.png)
+    ![MobileNet/Untitled%209.png](./images/MobileNet/Untitled 9.png)
 
 - Width Multiplier와 같이 Resolution Multiplier 값이 작아질수록 accuracy 감소
 
 - Width Multiplier, Resolution Multiplier를 동시에 적용했을 때 accuracy와 연산량 사이의 trade off
 
-    ![MobileNet/Untitled%2010.png](MobileNet/Untitled%2010.png)
+    ![MobileNet/Untitled%2010.png](./images/MobileNet/Untitled 10.png)
 
 - Width Multiplier = {1, 0.75, 0.5, 0.25}
 - Resolution Multiplier = {224, 192, 160, 128}
@@ -169,18 +169,18 @@
 
 - Accuracy와 parameter 사이의 trade off
 
-    ![MobileNet/Untitled%2011.png](MobileNet/Untitled%2011.png)
+    ![MobileNet/Untitled%2011.png](./images/MobileNet/Untitled 11.png)
 
 - MobileNet과 VGG, GoogleNet과의 비교
 
-    ![MobileNet/Untitled%2012.png](MobileNet/Untitled%2012.png)
+    ![MobileNet/Untitled%2012.png](./images/MobileNet/Untitled 12.png)
 
 - MobileNet은 VGG와 비슷한 성능을 내면서도 연산량과 파라미터를 32배, 27배 줄임
 - GoogleNet보다 정확도가 더 높으면서 연산량, 파라미터 측면에서도 효율적임
 
 - MobileNet에 Width & Resolution Multiplier를 적용하고 다른 모델과 비교
 
-    ![MobileNet/Untitled%2013.png](MobileNet/Untitled%2013.png)
+    ![MobileNet/Untitled%2013.png](./images/MobileNet/Untitled 13.png)
 
 - α=0.5, resolution= 160을 사용
 - AlexNet, SqueezeNet보다 accuracy가 높으면서 cost가 적음
@@ -189,7 +189,7 @@
 
 - Stanford Dog dataset에서 실험
 
-    ![MobileNet/Untitled%2014.png](MobileNet/Untitled%2014.png)
+    ![MobileNet/Untitled%2014.png](./images/MobileNet/Untitled 14.png)
 
 - nosiy web data로 pretrain한 뒤에 Stanford Dog dataset으로 finetuning
 - MobileNet이 매우 적은 cost로도 기존 모델과 비슷한 성능을 냄
@@ -198,7 +198,7 @@
 
 - 해당 이미지가 지구의 어느 위치에서 찍혔는지 분류하는 문제
 
-    ![MobileNet/Untitled%2015.png](MobileNet/Untitled%2015.png)
+    ![MobileNet/Untitled%2015.png](./images/MobileNet/Untitled 15.png)
 
 - 이미지를 각 grid cell로 나누어 데이터를 만듦
 - InceptionV3를 backbone으로 사용한 PlaNet에서 MobileNet을 backbone으로 사용하였더니 성능이 더 잘나오거나 떨어진 경우도 있었지만 cost 측면에서 훨씬 효율적이고 Im2GPS보다 outperform
@@ -207,7 +207,7 @@
 
 - face attribute classification task에도 적용
 
-    ![MobileNet/Untitled%2016.png](MobileNet/Untitled%2016.png)
+    ![MobileNet/Untitled%2016.png](./images/MobileNet/Untitled 16.png)
 
 - MobileNet과 knowledge distillation 기법을 적용하여 얼마나 시너지가 나는지 분석
 - multi-attribute datset으로 학습된 large face attribute classifier를 baseline으로 사용(해당 모델에 대한 구체적인 정보는 모르겠음)
@@ -222,7 +222,7 @@
 
 - 얼굴 이미지들 간의 face similarity 측정하여 비교하는 FaceNet
 
-    ![MobileNet/Untitled%2017.png](MobileNet/Untitled%2017.png)
+    ![MobileNet/Untitled%2017.png](./images/MobileNet/Untitled 17.png)
 
 - 1e-4 Accuracy? FaceNet 논문에서 나오는 FAR(False Accept Rate)이라는 값을 1e-4로 두고 정확도를 비교
 - Face attribute와 마찬가지로 MobileNet을 distillation을 사용하여 학습
