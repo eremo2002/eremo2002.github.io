@@ -132,3 +132,4 @@
 # References
 
 [https://www.slideshare.net/JinwonLee9/shufflenet-pr054/19](https://www.slideshare.net/JinwonLee9/shufflenet-pr054/19)
+[https://blog.yani.io/filter-group-tutorial/](https://blog.yani.io/filter-group-tutorial/)
