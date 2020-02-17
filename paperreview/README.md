@@ -12,7 +12,9 @@ permalink: /paperreview/
 * [GoogLeNet]{:.heading.flip-title} --- Going Deeper with Convolutions
 * [ResNet]{:.heading.flip-title} --- Deep Residual Learning for Image Recognition
 * [MobileNet]{:.heading.flip-title} --- MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
+* [ShuffleNet]{:.heading.flip-title} --- ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
+
 
 {:.related-posts.faded}
 
@@ -42,6 +44,7 @@ permalink: /paperreview/
 [GoogLeNet]: GoogLeNet.md
 [ResNet]: ResNet.md
 [MobileNet]: MobileNet.md
+[ShuffleNet]: ShuffleNet.md
 [yolov1]: YOLOv1.md
 
 
