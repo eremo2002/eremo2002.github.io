@@ -11,7 +11,9 @@ permalink: /paperreview/
 * [VGG]{:.heading.flip-title} --- Very Deep Convolutional Networks for Large-Scale Image Recognition
 * [GoogLeNet]{:.heading.flip-title} --- Going Deeper with Convolutions
 * [ResNet]{:.heading.flip-title} --- Deep Residual Learning for Image Recognition
+* [MobileNet]{:.heading.flip-title} --- MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
+
 {:.related-posts.faded}
 
 
@@ -39,6 +41,7 @@ permalink: /paperreview/
 [VGG]: VGG.md
 [GoogLeNet]: GoogLeNet.md
 [ResNet]: ResNet.md
+[MobileNet]: MobileNet.md
 [yolov1]: YOLOv1.md
 
 
