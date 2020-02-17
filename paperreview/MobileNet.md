@@ -86,7 +86,7 @@
 - 실제 컴퓨터에선 sparse matrix 연산보다 dense matrix 연산이 더 빠르다. MobileNet에서 각 레이어가 차지하는 연산 중 90% 이상이 dense한 1x1 conv로 이루어져있기 때문에 MobileNet은 최적화된 general matrix multiply function으로 구현될 수 있음
 - for문을 사용하지 않고 컨볼루션 연산을 효율적으로 구현하기 위해 3차원을 2차원 matrix로 변환하여 계산함.
 
-    ![MobileNet/Untitled%203.png](./images/MobileNet/Untitled 3.pngg)
+    ![MobileNet/Untitled%203.png](./images/MobileNet/Untitled 3.png)
 
 - 위와 같은 방법은 feature map과 filter를 GEMM(General Matrix Multiply)연산을 위해 메모리를 reordering하는 작업이 필요함
 - 그러나 1x1 convolution은 reordering이 필요 없으며 directly하게 GEMM을 적용할 수 있음
