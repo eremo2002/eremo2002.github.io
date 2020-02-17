@@ -1,5 +1,3 @@
-# ShuffleNet
-
 # ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices
 
 # Abstract
@@ -30,7 +28,7 @@
 
 - feature map의 채널을 일정 그룹으로 나누어 각 그룹마다 독립적인 컨볼루션 연산을 수행하는 방식
 
-    ![ShuffleNet/Untitled.png](ShuffleNet/Untitled.png)
+    ![ShuffleNet/Untitled.png](./images/ShuffleNet/Untitled.png)
 
 ### Channel Shuffle Operation
 
@@ -48,7 +46,7 @@
 - 이 연산을 channel shuffle operation이라 한다. 만약 그룹의 수가 g, 각 그룹마다 채널 수가 n개 있을 때, group convolution의 output feature map은 gxn개의 채널을 갖게 된다. 여기서 channel dimension을 (g, n)으로 reshape하면 width x height x channel이었던 텐서가 width x height x groups x n으로 reshape되고 이 텐서에서 groups와 n 축을 permute하여 채널 정보가 셔플링되게 만든다.
 - 실제 keras에선 permute_dimensions()를 사용하여 channel shuffle을 수행할 수 있다. [https://www.tensorflow.org/api_docs/python/tf/keras/backend/permute_dimensions](https://www.tensorflow.org/api_docs/python/tf/keras/backend/permute_dimensions)
 
-![ShuffleNet/Untitled%201.png](ShuffleNet/Untitled%201.png)
+![ShuffleNet/Untitled%201.png](./images/ShuffleNet/Untitled 1.png)
 
 - channel shuffle operation은 두 컨볼루션 레이어의 그룹 수가 다르더라도 적용할 수 있으며 미분이 가능하기 때문에 end-to-end training을 위한 네트워크 구조에 쉽게 임베딩될 수 있다.
 - channel shuffle operation을 통해 group convolution layer를 여러 개 쌓는 네트워크를 더 powerful하게 만들어준다.
@@ -60,11 +58,11 @@
 - Unit (C)에선 shortcut path로 3x3 Avg Pooling을 사용한 뒤 오른쪽 path와 Concat 연산하여 다음 레이어로 전달한다.
 - 일반적인 CNN 구조에선 레이어를 거칠수록 spatial size는 줄어들고 channel 수는 늘리는 형태를 취하며 spatial size를 줄이기 위해 pooling을 feature map의 채널 수를 늘리기 위해 kernel 개수를 늘리지만 ShuffleNet Unit (C)에서는 3x3 Avg Pool, 3x3 DWConv에서 stride값을 다르게 주어 spatial size를 줄이고 concat을 통해 채널 수를 늘리는 방식을 취한다.
 
-    ![ShuffleNet/Untitled%202.png](ShuffleNet/Untitled%202.png)
+    ![ShuffleNet/Untitled%202.png](./images/ShuffleNet/Untitled 2.png)
 
 - Group convolution과 channel shuffle operation을 적용한 ShuffleNet unit의 complexity를 다른 모델의 block과 비교. input size c x h x w, bottleneck channels = m이라 할 때 각 block마다 연산량은 아래와 같으며 ShuffleNet의 연산량이 가장 작다.
 
-    ![ShuffleNet/Untitled%203.png](ShuffleNet/Untitled%203.png)
+    ![ShuffleNet/Untitled%203.png](./images/ShuffleNet/Untitled 3.png)
 
 - 따라서, 주어진 computational budget에서 사용하기에 ShuffleNet이 가장 효율적이다.
 - 또한 depthwise convolution이 이론적으론 low complexity지만 실제 low-power mobile device에서 효율적으로 구현하기 어렵다는 점 그리고 computation/memory access 측면에서 다른 dense operation보다 좋지 않다는 문제가 있기 때문에 depthwise convolution은 bottleneck feature map에서만 사용한다.
@@ -80,7 +78,7 @@
 
 - 1x, 0.5x, 0.25x는 커널의 수를 조절하는 scaling factor. MobileNet의 width multiplier와 비슷
 
-    ![ShuffleNet/Untitled%204.png](ShuffleNet/Untitled%204.png)
+    ![ShuffleNet/Untitled%204.png](./images/ShuffleNet/Untitled 4.png)
 
 - g=1인 경우 group convolution이 적용되지 않은 것과 같음
 - 대개 그룹 수를 점점 늘렸을 때 성능이 더 좋아지는 현상을 보임. 그러나 그룹 수를 무조건 늘린다고 반드시 성능이 개선되는 건 아님
@@ -89,7 +87,7 @@
 
 - Channel Shuffle operation을 사용했을 때 /안했을 때
 
-    ![ShuffleNet/Untitled%205.png](ShuffleNet/Untitled%205.png)
+    ![ShuffleNet/Untitled%205.png](./images/ShuffleNet/Untitled 5.png)
 
 - 모든 케이스에서 channel shuffle을 사용하는 것이 더 좋다.
 - 또한 그룹의 수가 상대적으로 큰 경우 (g=8) channel shuffle로 인한 성능 향상 폭이 더 크다.
@@ -98,7 +96,7 @@
 
 - VGG, ResNet 등 SOTA를 찍었던 모델들은 low complexity가 아니기 때문에 해당 모델들과 ShuffleNet의 Complexity를 비슷하게 맞춰놓고 비교함
 
-    ![ShuffleNet/Untitled%206.png](ShuffleNet/Untitled%206.png)
+    ![ShuffleNet/Untitled%206.png](./images/ShuffleNet/Untitled 6.png)
 
 - Complexit를 비슷하게 맞춰놓고 비교했을 때, 제안하는 ShuffleNet의 성능이 더 좋았다.
 
@@ -106,7 +104,7 @@
 
 - Efficient model끼리 비교
 
-    ![ShuffleNet/Untitled%207.png](ShuffleNet/Untitled%207.png)
+    ![ShuffleNet/Untitled%207.png](./images/ShuffleNet/Untitled 7.png)
 
 - 다양한 Complexity에서도 ShuffleNet이 MobileNet보다 더 좋은 성능을 냄
 - 특히 ShuffleNet은 < 150 MFLOPs의 small model을 설계하는데 초점을 맞추고 있기 때문에 Complexity가 낮은 지표에서도 ShuffleNet이 훨씬 더 좋은 성능을 냄
@@ -114,13 +112,13 @@
 
 - 다른 모델들과 비교했을 때 Complexity 측면에서 매우 효율적이며 error rate도 더 낮음
 
-    ![ShuffleNet/Untitled%208.png](ShuffleNet/Untitled%208.png)
+    ![ShuffleNet/Untitled%208.png](./images/ShuffleNet/Untitled 8.png)
 
 ### Generalization Ability
 
 - ShuffleNet을 object detection에 적용
 
-    ![ShuffleNet/Untitled%209.png](ShuffleNet/Untitled%209.png)
+    ![ShuffleNet/Untitled%209.png](./images/ShuffleNet/Untitled 9.png)
 
 - Detection framework는 Faster-RCNN을 사용
 - Input resolution을 다르게 했을 때도 ShuffleNet의 mAP가 더 높음
@@ -129,7 +127,7 @@
 
 - ShuffleNet의 inference speed evaluation
 
-    ![ShuffleNet/Untitled%2010.png](ShuffleNet/Untitled%2010.png)
+    ![ShuffleNet/Untitled%2010.png](./images/ShuffleNet/Untitled 10.png)
 
 # References
 
