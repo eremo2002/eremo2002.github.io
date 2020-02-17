@@ -1,7 +1,3 @@
-# MobileNet
-
-URL: https://arxiv.org/pdf/1704.04861.pdf
-
 # MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
 
 # Abstract
