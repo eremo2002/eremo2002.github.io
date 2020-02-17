@@ -219,7 +219,7 @@
 - object detection evaluation (MS-COCO dataset)
 - SSD, Faster-RCNN 두 framework에서 Backbone net을 다르게 하여 비교함
 - 두 framework에서 comparable한 성능을 보여주었으며 네트워크의 computational complexity, size를 더 효율적임
-
+    ![MobileNet/table13.png](./images/MobileNet/table13.png)
 - 얼굴 이미지들 간의 face similarity 측정하여 비교하는 FaceNet
 
     ![MobileNet/Untitled%2017.png](./images/MobileNet/Untitled 17.png)
