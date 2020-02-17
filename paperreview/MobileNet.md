@@ -124,6 +124,8 @@
 - ρ 또한 0~1사이의 값이며 ρ=1일 때는 resolution을 줄이지 않는 것과 같음
 - ρ 값에 따라 224, 192, 160, 128의 4가지 resolution을 사용함
 
+<br/>
+<br/>
 - 제안하는 하이퍼 파라미터인 width & resolution multiplier를 사용했을 때 cost
 
     ![MobileNet/Untitled%205.png](./images/MobileNet/Untitled 5.png)
@@ -138,6 +140,10 @@
 
 - 정확도는 약 1% 정도 차이나지만 연산량, 파라미터 수에서 cost가 많이 줄어듦
 
+<br/>
+<br/>
+<br/>
+<br/>
 - Width Multiplier를 적용했을 때와 그냥 레이어 수만 줄인 Shallow MobileNet과의 비교
 
     ![MobileNet/Untitled%207.png](./images/MobileNet/Untitled 7.png)
@@ -152,13 +158,20 @@
     ![MobileNet/Untitled%208.png](./images/MobileNet/Untitled 8.png)
 
 - Width Multiplier 값이 작아질 수록 accuracy가 줄어듦
+<br/>
+<br/>
+<br/>
+<br/>
 
 - Width Multiplier는 그대로 두고 Resolution Multiplier를 다르게 줬을 때
 
     ![MobileNet/Untitled%209.png](./images/MobileNet/Untitled 9.png)
 
 - Width Multiplier와 같이 Resolution Multiplier 값이 작아질수록 accuracy 감소
-
+<br/>
+<br/>
+<br/>
+<br/>
 - Width Multiplier, Resolution Multiplier를 동시에 적용했을 때 accuracy와 연산량 사이의 trade off
 
     ![MobileNet/Untitled%2010.png](./images/MobileNet/Untitled 10.png)
@@ -166,18 +179,27 @@
 - Width Multiplier = {1, 0.75, 0.5, 0.25}
 - Resolution Multiplier = {224, 192, 160, 128}
 - 총 16개 모델을 비교함,  log linear하게 증가함
-
+<br/>
+<br/>
+<br/>
+<br/>
 - Accuracy와 parameter 사이의 trade off
 
     ![MobileNet/Untitled%2011.png](./images/MobileNet/Untitled 11.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - MobileNet과 VGG, GoogleNet과의 비교
 
     ![MobileNet/Untitled%2012.png](./images/MobileNet/Untitled 12.png)
 
 - MobileNet은 VGG와 비슷한 성능을 내면서도 연산량과 파라미터를 32배, 27배 줄임
 - GoogleNet보다 정확도가 더 높으면서 연산량, 파라미터 측면에서도 효율적임
-
+<br/>
+<br/>
+<br/>
+<br/>
 - MobileNet에 Width & Resolution Multiplier를 적용하고 다른 모델과 비교
 
     ![MobileNet/Untitled%2013.png](./images/MobileNet/Untitled 13.png)
@@ -221,7 +243,12 @@
     ![MobileNet/Untitled%2016.png](./images/MobileNet/table13.png)
 - SSD, Faster-RCNN 두 framework에서 Backbone net을 다르게 하여 비교함
 - 두 framework에서 comparable한 성능을 보여주었으며 네트워크의 computational complexity, size를 더 효율적임
-    
+<br/>
+<br/>
+<br/>
+<br/>
+### Face embeddings
+
 - 얼굴 이미지들 간의 face similarity 측정하여 비교하는 FaceNet
 
     ![MobileNet/Untitled%2017.png](./images/MobileNet/Untitled 17.png)
