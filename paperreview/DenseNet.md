@@ -102,7 +102,10 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 - SVHN dataset에서 Depth가 250인 모델이 100인 모델보다 성능이 떨어지는 결과를 보임. 이는 SVHN classification이 상대적으로 easy한 task이기 때문에 deep model이 training set에 오버피팅 된 것으로 보임
 - bottleneck layer와 compression을 사용하지 않은 일반 DenseNet에서 depth와 k가 커질수록 성능이 개선되는 결과를 보임. 이는 DenseNet 구조가 bigger and deeper model에서 증가된 representational power를 잘 utilize할 수 있기 때문
 - 파라미터 수를 비교했을 때 ResNet이나 FractalNet보다 더 적은 파라미터로 높은 성능을 달성함. 이는 파라미터 측면에서도 DenseNet이 효율적이고 특히 DenseNet-BC를 사용하면 파라미터를 더욱 효율적으로 줄일 수 있음
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 아래 Fig 4, right C10+ dataset에 대한 training, test loss
 
     ![DenseNet/Untitled%205.png](./images/DenseNet/Untitled 5.png)
@@ -110,6 +113,10 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 - Middle) 같은 수준의 accuracy를 달성한 지점에서 DenseNet은 ResNet보다 1/3가량 더 적은 파라미터만 사용했음에도 불구하고 같은 성능을 냄
 - DenseNet-BC (L=100, k=12)는 1001개의 레이어를 사용한 ResNet-1001보다 90%적은 파라미터만 사용하였음에도 불구하고 비슷한 test error 결과를 보임
 - DenseNet의 효율적인 파라미터 사용이 오버피팅되는 문제를 방지해주는 효과가 있음
+<br/>
+<br/>
+<br/>
+<br/>
 
 - ImageNet Classification에서 DenseNet의 depth와 growth rate을 바꿔가며  ResNet과 비교
 
