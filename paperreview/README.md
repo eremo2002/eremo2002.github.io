@@ -13,6 +13,7 @@ permalink: /paperreview/
 * [ResNet]{:.heading.flip-title} --- Deep Residual Learning for Image Recognition
 * [MobileNet]{:.heading.flip-title} --- MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
 * [ShuffleNet]{:.heading.flip-title} --- ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices
+* [DenseNet]{:.heading.flip-title} --- Densely Connected Convolutional Networks
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
 
 
@@ -45,6 +46,7 @@ permalink: /paperreview/
 [ResNet]: ResNet.md
 [MobileNet]: MobileNet.md
 [ShuffleNet]: ShuffleNet.md
+[DenseNet]: DenseNet.md
 [yolov1]: YOLOv1.md
 
 
