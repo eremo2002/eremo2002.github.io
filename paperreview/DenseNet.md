@@ -51,6 +51,7 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 ### Composite function
 
 - composite function H_l을 BN, ReLU, 3x3 conv 순서대로 사용
+    ![DenseNet/Untitled%202.png](./images/DenseNet/Untitled 2.png)
 
 ### Pooling layers
 
@@ -67,7 +68,7 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 
 - 각 레이어에서 채널 수가 k개인 output feature map을 만들어냄. k가 작은 값이더라도 레이어가 쌓일 수록 채널 수가 굉장히 많아지기 때문에 채널 수를 조절하기 위한 bottleneck layer를 사용.
 
-    ![DenseNet/Untitled%202.png](./images/DenseNet/Untitled 2.png)
+    
 
 - 1x1 conv에서 채널 수가 growth rate*4인 feature map을 만들고 3x3 conv에서는 growth rate만큼 채널 수를 가지는 feature를 뽑음
 
