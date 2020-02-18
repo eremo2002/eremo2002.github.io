@@ -1,8 +1,3 @@
-# DenseNet
-
-Status: ing
-URL: https://arxiv.org/abs/1608.06993
-
 # Densely Connected Convolutional Networks
 
 # Abstract
@@ -19,7 +14,7 @@ URL: https://arxiv.org/abs/1608.06993
 - 그러나 본 논문에서는 기존의 short path pattern을 distill하고 네트워크의 레이어 사이에서 information flow가 원활히 이루어지도록 각 레이어를 모두 연결한 connectivity pattern을 사용함
 - 각 레이어는 이전의 모든 레이어에서 나온 feature map을 입력으로 받으며, 자신의 output feature map을 이후에 있는 모든 레이어에 전달하는 구조
 
-    ![DenseNet/Untitled.png](DenseNet/Untitled.png)
+    ![DenseNet/Untitled.png](./images/DenseNet/Untitled.png)
 
 - ResNet에선 feature map끼리 summation했지만 DenseNet에선 feature concat
 - L번째 레이어는 이전 레이어에서 온 L개의 input을 입력으로 받게 되고 자신의 feature map을 자기 뒤에 있는 L-l개의 레이어에 전달해줌. 따라서 네트워크에 총 L개의 레이어가 존재할 때 L(L+1)/2개의 connection이 존재하게 됨
@@ -38,7 +33,7 @@ URL: https://arxiv.org/abs/1608.06993
 
 ### Dense Connectivity
 
-![DenseNet/Untitled%201.png](DenseNet/Untitled%201.png)
+![DenseNet/Untitled%201.png](./images/DenseNet/Untitled 1.png)
 
 - Denotement
     - x_{0} = single image
@@ -72,11 +67,11 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 
 - 각 레이어에서 채널 수가 k개인 output feature map을 만들어냄. k가 작은 값이더라도 레이어가 쌓일 수록 채널 수가 굉장히 많아지기 때문에 채널 수를 조절하기 위한 bottleneck layer를 사용.
 
-    ![DenseNet/Untitled%202.png](DenseNet/Untitled%202.png)
+    ![DenseNet/Untitled%202.png](./images/DenseNet/Untitled 2.png)
 
 - 1x1 conv에서 채널 수가 growth rate*4인 feature map을 만들고 3x3 conv에서는 growth rate만큼 채널 수를 가지는 feature를 뽑음
 
-    ![DenseNet/Untitled%203.png](DenseNet/Untitled%203.png)
+    ![DenseNet/Untitled%203.png](./images/DenseNet/Untitled 3.png)
 
 - bottleneck layer에서 BN-ReLU-Conv(1x1)-BN-ReLU-Conv(3x3)를 사용하는 버전을 DenseNet-B라고 부름. DenseNet-B(Bottleneck)
 
@@ -99,7 +94,7 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 
 ### Classification Result on CIFAR and SVHN
 
-![DenseNet/Untitled%204.png](DenseNet/Untitled%204.png)
+![DenseNet/Untitled%204.png](./images/DenseNet/Untitled 4.png)
 
 - DenseNet-BC (L=190, k=40) 모델이 CIFAR-10, CIFAR100 datasest에서 SOTA를 달성함
 - SVHN dataset에서도 ResNet 보다 더 좋은 성능을 보여줌
@@ -109,7 +104,7 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 
 - 아래 Fig 4, right C10+ dataset에 대한 training, test loss
 
-    ![DenseNet/Untitled%205.png](DenseNet/Untitled%205.png)
+    ![DenseNet/Untitled%205.png](./images/DenseNet/Untitled 5.png)
 
 - Middle) 같은 수준의 accuracy를 달성한 지점에서 DenseNet은 ResNet보다 1/3가량 더 적은 파라미터만 사용했음에도 불구하고 같은 성능을 냄
 - DenseNet-BC (L=100, k=12)는 1001개의 레이어를 사용한 ResNet-1001보다 90%적은 파라미터만 사용하였음에도 불구하고 비슷한 test error 결과를 보임
@@ -117,7 +112,7 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 
 - ImageNet Classification에서 DenseNet의 depth와 growth rate을 바꿔가며  ResNet과 비교
 
-    ![DenseNet/Untitled%206.png](DenseNet/Untitled%206.png)
+    ![DenseNet/Untitled%206.png](./images/DenseNet/Untitled 6.png)
 
 - 공정한 비교를 위해 데이터 pre-processing, optimization setting 등을 똑같이 세팅하여 실험
 - ResNet과 비슷한 성능을 내는 수준에서 비교했을 때, 파라미터나 연산량이 훨씬 효율적임
@@ -143,7 +138,7 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 - 예를 들어, (12, 1), (12, 2), (12, 3)처럼 target layer와 source layer의 거리가 먼 경우 상대적으로 값이 작지만 (12, 9), (12, 10), (12, 11)은 값이 큼
 - The color of pixel encodes the average L1 norm of the weights connecting convolutional layer s to  ℓ
 
-    ![DenseNet/Untitled%207.png](DenseNet/Untitled%207.png)
+    ![DenseNet/Untitled%207.png](./images/DenseNet/Untitled 7.png)
 
 - early layer에서 추출된 feature가 deep layer에 잘 전달됨
 - transition layer도 이전 dense block에서 추출된 feature를 잘 살려서 다음 레이어에 전달하는 것으로 보아 information flow가 원활히 이루어짐
