@@ -51,7 +51,7 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 ### Composite function
 
 - composite function H_l을 BN, ReLU, 3x3 conv 순서대로 사용
-    ![DenseNet/Untitled%202.png](./images/DenseNet/Untitled 2.png)
+    ![DenseNet/Untitled%202.png](./images/DenseNet/Untitled 2.png) 
 
 ### Pooling layers
 
