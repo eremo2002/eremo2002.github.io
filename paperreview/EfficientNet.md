@@ -1,8 +1,3 @@
-# EfficientNet
-
-Status: ing
-Year: 2019 ICML
-
 # EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks
 
 # Abstract
