@@ -73,7 +73,10 @@ $$\hat{F_i}, \ \hat{L_i}, \ \hat{H_i}, \ \hat{W_i}, \ \hat{C_i} $$
 - d, r을 1로 두고 width만 scaling하면 accuracy가 빠르게 saturation됨
 - deeper & higher resolution에서 width를 scaling했을 때 accuracy 성능이 가장 좋았음.
 - Observation 2 - better accuracy & efficiency를 위해선 네트워크의 모든 dimension(depth, width, resolution)을 balance하게 scaling하는 것이 필요하다.
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 이전에 네트워크의 depth, width를 arbitrarily하게 scaling하는 연구가 있었지만 노가다로 찾는 건 너무 cost가 크다. 따라서 본 논문에서는 새로운 compound scaling method를 제안한다.
 - 제안하는 방법은 사용자가 compound coefficient 𝝓를 가용할 수 있는 resource 내에서 control하는 것이다.
 - grid search로 찾은 depth, width, resolution을 α, β, γ라 했을 때 (α · β^2· γ^2) 값이 2가 되도록 scaling한다.
@@ -103,7 +106,10 @@ $$ACC(m)\times [FLOPS(m)/T]^w$$
     ![EfficientNet/Untitled%205.png](./images/EfficientNet/Untitled 5.png)
 
 - EfficientNet-B0에서 핵심이 되는 main block은 mobile inverted bottleneck인 MBConv block이며 여기에 squeeze-excitation block을 추가하였다.
-
+<br/>
+<br/>
+<br/>
+<br/>
 - baseline EfficientNet-B0를 사용하여 compound scaling method를 아래 2단계로 수행한다.
 - STEP 1: 처음에는 𝝓를 1로 고정시켜놓고 사용할 수 있는 resource를 2배 정도 있다고 가정하여 α, β, γ값을 small grid search를 이용하여 찾는다. EfficientNet-B0에서 찾은 best α, β, γ 값은 α = 1.2, β = 1.1, γ = 1.15이며,  (α · β^2· γ^2) 값은 약 1.92로 constraint인 2를 넘지 않는다.
 - STEP 2: 위에서 찾은 값으로 α, β, γ를 고정해놓고 𝝓 값을 다르게 하여 EfficientNet-B1 부터 B7까지 찾음
@@ -118,11 +124,17 @@ $$ACC(m)\times [FLOPS(m)/T]^w$$
 
 - single dimension scaling method보다 compound scaling method 했을 때 성능 개선이 더 잘됨
 - 본 논문에서 제안하는 compound scaling method가 기존 CNN 모델에서도 잘 작동하며 효과적임을 증명함
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 실제 inference 속도가 얼마나 개선 되었는지 비교
 
     ![EfficientNet/Untitled%2011.png](./images/EfficientNet/Untitled 11.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - Transfer Learning 했을 때 performance
 
     ![EfficientNet/Untitled%2012.png](./images/EfficientNet/Untitled 12.png)
@@ -141,7 +153,10 @@ $$ACC(m)\times [FLOPS(m)/T]^w$$
 
 - compound scaling이 accuracy, FLOPS 두가지 측면에서 더 효과적임
 - 따라서 제안하는 compound scaling이 single dimension scaling보다 더 좋다.
-
+<br/>
+<br/>
+<br/>
+<br/>
 - Class Activation Map으로 시각화하여 해석
 
     ![EfficientNet/Untitled%2015.png](./images/EfficientNet/Untitled 15.png)
