@@ -14,6 +14,7 @@ permalink: /paperreview/
 * [MobileNet]{:.heading.flip-title} --- MobileNets: Efficient Convolutional Neural Networks for Mobile Vision Applications
 * [ShuffleNet]{:.heading.flip-title} --- ShuffleNet: An Extremely Efficient Convolutional Neural Network for Mobile Devices
 * [DenseNet]{:.heading.flip-title} --- Densely Connected Convolutional Networks
+* [EfficientNet]{:.heading.flip-title} ---EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
 
 
@@ -47,6 +48,7 @@ permalink: /paperreview/
 [MobileNet]: MobileNet.md
 [ShuffleNet]: ShuffleNet.md
 [DenseNet]: DenseNet.md
+[EfficientNet]: EfficientNet.md
 [yolov1]: YOLOv1.md
 
 
