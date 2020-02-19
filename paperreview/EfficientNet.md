@@ -56,7 +56,7 @@ $$\hat{F_i}, \ \hat{L_i}, \ \hat{H_i}, \ \hat{W_i}, \ \hat{C_i} $$
 
 - Width만 늘렸을 때
     - width를 scaling하는 것은 일반적으로 small size model에서 많이 쓰는 방법
-    - wider network가 more fine-grained feature를 잘 capture할 수 있고 학습도 쉽지만 extremely wide but shallow network는 high level feature를 잘 capture하지 못 하며  네트우크의 width가 더욱 wider할 수록 accuracy가 빠르게 saturate 되는 현상이 나타남
+    - wider network가 more fine-grained feature를 잘 capture할 수 있고 학습도 쉽지만 extremely wide but shallow network는 high level feature를 잘 capture하지 못 하며  네트워크의 width가 더욱 wider할수록 accuracy가 빠르게 saturate 되는 현상이 나타남
 
 - Resolution만 늘렸을 때
     - input image resolution이 커지면 CNN은 fine-grained pattern을 더 잘 capture할 수 있기 때문에 accuracy가 높아짐. 최근에 SOTA를 찍었던 GPipe는 480x480 resolution을 사용하였고, 600x600 같이 high resolution을 사용하는 모델도 있음
@@ -111,7 +111,7 @@ $$ACC(m)\times [FLOPS(m)/T]^w$$
 <br/>
 <br/>
 - baseline EfficientNet-B0를 사용하여 compound scaling method를 아래 2단계로 수행한다.
-- STEP 1: 처음에는 𝝓를 1로 고정시켜놓고 사용할 수 있는 resource를 2배 정도 있다고 가정하여 α, β, γ값을 small grid search를 이용하여 찾는다. EfficientNet-B0에서 찾은 best α, β, γ 값은 α = 1.2, β = 1.1, γ = 1.15이며,  (α · β^2· γ^2) 값은 약 1.92로 constraint인 2를 넘지 않는다.
+- STEP 1: 처음에는 𝝓를 1로 고정시켜놓고 사용할 수 있는 resource가 2배 정도 있다고 가정하여 α, β, γ값을 small grid search를 이용하여 찾는다. EfficientNet-B0에서 찾은 best α, β, γ 값은 α = 1.2, β = 1.1, γ = 1.15이며,  (α · β^2· γ^2) 값은 약 1.92로 constraint인 2를 넘지 않는다.
 - STEP 2: 위에서 찾은 값으로 α, β, γ를 고정해놓고 𝝓 값을 다르게 하여 EfficientNet-B1 부터 B7까지 찾음
 
     ![EfficientNet/Untitled%209.png](./images/EfficientNet/Untitled 9.png)
