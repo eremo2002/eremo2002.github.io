@@ -33,7 +33,7 @@
     ![EfficientNet/Untitled%203.png](./images/EfficientNet/Untitled 3.png)
 
 - 일반적인 ConvNet은 best layer architecture F를 찾는 것이 목표였지만, model scaling은 사전에 F를 정의해놓고 네트워크의 length(L =layer 수), width(C = Channel 수), resolution(H, W = height, width)를 늘려가며 최적의 구조를 찾는다.
-- F를 fix 해놔서 model scaling 문제가 좀 더 간결해질 수 있지만 여전히 L, C, H, W의 design space가 너무 크기 때문에 design space를 줄이기 위해 모든 레이어가 constant ration에 따라 uniformly하게 스케일링되도록 제한하였다. 따라서 논문의 target은 주어진 resource constraint에서 모델의 accuracy를 최대화하는 optimization problem으로 정의할 수 있다.
+- F를 fix 해놔서 model scaling 문제가 좀 더 간결해질 수 있지만 여전히 L, C, H, W의 design space가 너무 크기 때문에 design space를 줄이기 위해 모든 레이어가 constant ratio에 따라 uniformly하게 스케일링되도록 제한하였다. 따라서 논문의 target은 주어진 resource constraint에서 모델의 accuracy를 최대화하는 optimization problem으로 정의할 수 있다.
 
     ![EfficientNet/Untitled%204.png](./images/EfficientNet/Untitled 4.png)
 
