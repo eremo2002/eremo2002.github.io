@@ -37,7 +37,7 @@
 
     ![EfficientNet/Untitled%204.png](./images/EfficientNet/Untitled 4.png)
 
-- d여기서 d, w, r은 네트워크의 depth, width, resolution이다.
+- 여기서 d, w, r은 네트워크의 depth, width, resolution이다.
 - 아래의 요소는 사전에 정의된 Table 1의 baseline network를 사용한다.
 
 $$\hat{F_i}, \ \hat{L_i}, \ \hat{H_i}, \ \hat{W_i}, \ \hat{C_i} $$
