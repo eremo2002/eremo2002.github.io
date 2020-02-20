@@ -1,8 +1,3 @@
-# YOLOv2
-
-URL: https://arxiv.org/pdf/1612.08242.pdf
-Year: 2017 CVPR
-
 # YOLO 9000: Better, Faster, Stronger
 
 # Abstract
@@ -22,7 +17,7 @@ Year: 2017 CVPR
 - 기존의 YOLOv1은 Fast-RCNN에 비해 localization error도 높고 low recall 문제도 있엇다. YOLOv2에서는 classification accuracy는 유지하면서 recall과 localization을 개선하는 방향에 초점을 맞춘다.
 - YOLO의 성능을 개선시키기 위해 아래와 같은 idea들을 조합한다.
 
-    ![YOLOv2/Untitled.png](YOLOv2/Untitled.png)
+    ![YOLOv2/Untitled.png](./images/YOLOv2/Untitled.png)
 
 ### Batch Normalization
 
@@ -50,7 +45,7 @@ Year: 2017 CVPR
 - 만약 centroid와 어떤 box의 IOU가 클수록 그 box는 centroid와의 거리가 작은 것으로 볼 수 있다.
 - 이렇게 해서 centroid가 5개, 9개인 경우로 실험했는데 9개인 경우가 평균 IOU는 좀더 높지만 큰 차이가 나지 않기 때문에 anchor box 5개를 사용한다.
 
-    ![YOLOv2/Untitled%201.png](YOLOv2/Untitled%201.png)
+    ![YOLOv2/Untitled%201.png](./images/YOLOv2/Untitled 1.png)
 
 ### Direct location prediction
 
@@ -64,9 +59,9 @@ Year: 2017 CVPR
 - YOLOv2에서는 순수하게 offset 값을 예측하는 것 대신 YOLO의 approach와 grid cell 위치를 기준으로 좌표를 이용한다. YOLOv2는 offset 값을 sigmoid에 넣어 0~1사이의 값으로 조정한다.
 - 네트워크의 output feature map에서 각 grid cell마다 5개의 bounding box를 만들어낸다. 각 box에 대해 t_x, t_y, t_w, t_h, t_o 총 5개의 좌표값을 prediction한다. (c_x, c_y)는 해당 grid cell의 top left 좌표값이며 p_w, p_h는 사전에 정의한 anchor box의 width, height값이다. 따라서 네트워크가 예측한 t_x, t_y, t_w, t_h, t_o 값에 따라 bounding box의 좌표는 아래의 식을 거쳐 구해진다.
 
-    ![YOLOv2/Untitled%202.png](YOLOv2/Untitled%202.png)
+    ![YOLOv2/Untitled%202.png](./images/YOLOv2/Untitled 2.png)
 
-    ![YOLOv2/Untitled%203.png](YOLOv2/Untitled%203.png)
+    ![YOLOv2/Untitled%203.png](./images/YOLOv2/Untitled 3.png)
 
 - RPN에서 offset값을 예측했던 방식과 달리 constraint을 주기 때문에 네트워크가 안정적으로 쉽게 학습된다.
 
@@ -80,18 +75,18 @@ Year: 2017 CVPR
 
 - YOLOv2가 image size에 robust하게 만들기 위해 multi scale training을 적용한다. YOLOv2의 기본 입력 resolution은 416x416이지만 10 batch마다 랜덤하게 새로운 resolution을 선택하여 학습한다. resolution 크기는 320~608이며 32씩 커진다. {320, 352, ..., 608}
 
-    ![YOLOv2/Untitled%204.png](YOLOv2/Untitled%204.png)
+    ![YOLOv2/Untitled%204.png](./images/YOLOv2/Untitled 4.png)
 
 ### Further Experiments
 
 - YOLOv2를 VOC2012 data로 학습시켰을 때 다른 SOTA detection system과 비교
 - YOLOv2는 다른 모델들에 비해 속도도 빠르면서 성능도 높다.
 
-    ![YOLOv2/Untitled%205.png](YOLOv2/Untitled%205.png)
+    ![YOLOv2/Untitled%205.png](./images/YOLOv2/Untitled 5.png)
 
 - 
 
-    ![YOLOv2/Untitled%206.png](YOLOv2/Untitled%206.png)
+    ![YOLOv2/Untitled%206.png](./images/YOLOv2/Untitled 6.png)
 
 # Faster
 
@@ -103,7 +98,7 @@ Year: 2017 CVPR
 - YOLOv2의 backbone으로 사용하기 위해 새로운 classification model Darknet-19를 제안함. VGG랑 비슷하게 3x3 filter를 사용하고 pooling layer 이후 채널 수를 2배 늘리는 구조. 그러나 feature representation을 압축하기 위해 3x3 conv 사이에 1x1 conv를 추가하였으며 prediction에서 global average pooling을 사용함
 - Darknet-19는 19개의 conv layer, 5개의 max pooling layer로 구성되어 있음
 
-    ![YOLOv2/Untitled%207.png](YOLOv2/Untitled%207.png)
+    ![YOLOv2/Untitled%207.png](./images/YOLOv2/Untitled 7.png)
 
 ### Training for classification
 
@@ -134,15 +129,15 @@ Year: 2017 CVPR
 - 예를 들어, 존재하는 class들을 뜯어보면 특정 class들을 하나의 synset(유의어 집단)으로 묶을 수 있음. 이러한 synset들은 그래프에서 하나의 path만 가지기 때문에 이러한 경로 정보를 tree에 반영하였음. 다시 말해, "Yorkshire terrier", "Norfolk terrier" 등의 class들은 "terrier"로 가는 하나의 path를 가지고 있기 때문에 이러한 정보를 트리로 구축한 것
 - 이런식으로 트리를 구축하다가 만약 어떤 concept이 root로 가는 경로가 2가지 생기는 경우, 2 path중에서 더 짧은 path만 사용함. (일단 논문의 내용을 이렇게 이해했는데 잘못 이해했을 수도 있음)
 
-    ![YOLOv2/Untitled%208.png](YOLOv2/Untitled%208.png)
+    ![YOLOv2/Untitled%208.png](./images/YOLOv2/Untitled 8.png)
 
 - 최종 결과는 visual concept들을 hierarchical model로 표현한 WordTree가 됨. 이렇게 구축한 WordTree를 이용하여 classification을 하기 위해 주어진 sysnet에대한 hyponym(하위어)들의 조건부 확률을 이용함. 예를 들어 "terrier"라는 node를 predict할 때, 아래와 같이 "terrier" synset에 존재하는 hyponym들에 대한 조건부확률을 구하는 것.
 
-    ![YOLOv2/Untitled%209.png](YOLOv2/Untitled%209.png)
+    ![YOLOv2/Untitled%209.png](./images/YOLOv2/Untitled 9.png)
 
 - 만약 특정 node에 대한 absolute probability를 계산하고자 한다면 root node부터 해당 node까지 조건부 확률값을 모두 곱하면 됨. 예를 들어, "Norfolk terrier"의 확률값을 구하고 싶다면 아래와 같이 root node까지 가는 경로의 모든 조건부 확률 값을 곱하여 계산함
 
-    ![YOLOv2/Untitled%2010.png](YOLOv2/Untitled%2010.png)
+    ![YOLOv2/Untitled%2010.png](./images/YOLOv2/Untitled 10.png)
 
 - Classification에서 이미지에 하나의 object만 있다고 가정하기 때문에 Pr(physical object)=1
 
@@ -150,13 +145,13 @@ Year: 2017 CVPR
 - 만약 ground truth로 "Norfolk terrier" 이미지가 들어오면 "Norfolk terrier"의 상위 노드들인 "dog", "mammal" 등의 라벨에 대한 확률값도 같이 계산함
 - 조건부 확률을 구하기 위해 제안하는 모델은 1369 차원의 vector를 predict하게 되며, 각 synset에 대해 개별적인 softmax를 적용
 
-    ![YOLOv2/Untitled%2011.png](YOLOv2/Untitled%2011.png)
+    ![YOLOv2/Untitled%2011.png](./images/YOLOv2/Untitled 11.png)
 
 - "dog" 이미지가 들어올 때 "dog"는 맞는데 어떤 품종인지 구분이 어렵다면 "dog"로 predict하게 됨
 
 - COCO dataset과 ImageNet dataset을 조합하여 구축한 Word Tree
 
-    ![YOLOv2/Untitled%2012.png](YOLOv2/Untitled%2012.png)
+    ![YOLOv2/Untitled%2012.png](./images/YOLOv2/Untitled 12.png)
 
 ### Joint classification and detection
 
@@ -173,4 +168,3 @@ Year: 2017 CVPR
 - YOLO9000은 detection과 classification을 결합하여 9000개 이상의 클래스를 detection할 수 있는 모델로 데이터셋을 combine하기 위해 WordTree를 구축하였다. classification과 segmentation에서도 useful할 수 있음
 - 논문에서 사용한 다양한 technique(multi-scaling, anchor box 등등..)들을 통해 일반화 성능을 높였음.
 
-#
