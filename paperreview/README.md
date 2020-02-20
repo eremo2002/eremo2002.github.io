@@ -16,8 +16,7 @@ permalink: /paperreview/
 * [DenseNet]{:.heading.flip-title} --- Densely Connected Convolutional Networks
 * [EfficientNet]{:.heading.flip-title} ---EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
-
-
+* [YOLOv2]{:.heading.flip-title} --- YOLO 9000: Better, Faster, Stronger
 {:.related-posts.faded}
 
 
@@ -50,6 +49,7 @@ permalink: /paperreview/
 [DenseNet]: DenseNet.md
 [EfficientNet]: EfficientNet.md
 [yolov1]: YOLOv1.md
+[YOLOv2]: YOLOv2.md
 
 
 [C3D]: C3D.md
