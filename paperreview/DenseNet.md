@@ -58,6 +58,7 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 - concatenation operation은 feature map의 width, height dimension이 일치해야 함
 - DenseNet의 dense connectivity는 dense block내에서 이루어지며 spatial size를 down-sampling하기 위해 dense block 사이에 transition layer를 추가함
 - transition layer는 BN, 1x1 conv, 2x2 avg pooling
+    ![DenseNet/Untitled.png](./images/DenseNet/fig2.png)
 
 ### Growth rate
 
@@ -90,6 +91,7 @@ $$x_l = H_l([x_0, \ x_1,..., \ x_{l-1}])$$
 - first dense block으로 들어가기 전에 input image는 3x3 convolution layer를 한번 거침
 - 마지막 dense block하고 나서 global average pooling 및 softmax classifier로 연결
 - 실험에 사용하는 DenseNet-BC는 4개의 Dense Blcok으로 구성, {L = 100,  k = 12}, {L = 250, k = 24}, {L = 190, k = 40}
+    ![DenseNet/Untitled.png](./images/DenseNet/table1.png)
 
 # Experiments
 
