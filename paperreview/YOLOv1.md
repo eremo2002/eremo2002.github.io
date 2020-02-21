@@ -60,9 +60,9 @@ $$\lambda_{coord} = 5  \\  \lambda_{noobj}=.5$$
 
 - i = cell
 - j = j th bounding box in cell i (각 cell 마다 여러 개의 box를 사용하므로 cell i에서 j번째 box)
-- 1_{ij} ^{obj} = cell i의 j번째 box에서 object가 있는 bounding box
-- 1_{ij} ^{noobj} = cell i의 j번째 box에서 object가 없는 bounding box
-- 1_{i} ^{obj} = object가 있는 cell i
+- 1_{ij} ^{obj} = cell i의 j번째 bounding box에서 ground truth object가 있으면 1, 없으면 0
+- 1_{ij} ^{noobj} = cell i의 j번째 bounding box에서 ground truth object가 없으면 1, 있으면 0
+- 1_{i} ^{obj} = ground truth object가 있는 cell i
 - overfitting 방지하기 위해, dropout(0.5), data augmentation 사용
 
 ### Inference
