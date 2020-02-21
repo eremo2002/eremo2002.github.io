@@ -71,6 +71,7 @@
 
 - ShuffleNet의 전체 아키텍처는 아래 Table 1과 같다. ShuffleNet은 위에서 언급한 Shuffle unit은 Stage 2, 3, 4에서 반복되어 사용하였다. bottleneck channel은 1/4을 사용하였다.
 - ShuffleNet Unit에서 그룹을 몇개로 사용할지는 pointwise convolution의 sparsity를 조절하는 역할을 한다. 따라서 group 수를 서로 다르게 하고 Complexity(MFLOPs)를 대략 140M으로 비슷하게 맞춰놓은 모델 5개를 사용하여 실험을 진행한다.
+    ![ShuffleNet/Untitled.png](./images/ShuffleNet/table1.png)
 
 # Experiments
 
