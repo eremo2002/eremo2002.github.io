@@ -14,26 +14,35 @@
     - 이렇게 만들어진 서로 다른 feature map들을 이용하여 predict하게 됨. 요즘엔 잘 안쓰임
 
         ![FPN/Untitled.png](./images/FPN/Untitled.png)
+<br/>
+<br/>
+<br/>
 
 - **Single feature map**
     - CNN이 scale variance에 robust하기 때문에 single scale feature를 이용하는 Singe feature map방식이 있음.
     - robust하다는 장점이 있지만 multi-scale을 사용하지 않기 때문에 accurate result 측면에서 성능이 떨어짐
 
         ![FPN/Untitled%201.png](./images/FPN/Untitled 1.png)
-
+<br/>
+<br/>
+<br/>
 - **Pyramidal feature hierarchy**
     - CNN 레이어의 중간 중간 spatial resolution이 다른 feature를 가져와서 각 feature 마다 predict하는 pyramidal feature hierarchy 방식이 있음. (대표적인 예로 SSD)
     - 이 방식은 multi-scale을 사용하지만 앞쪽 레이어의 feature는 뒷쪽 레이어에서 feature보다 depth가 작기 때문에 feature map들 간의 semantic gap이 발생하게 됨.
     - SSD의 경우 low-level의 feature를 사용하지 않기 때문에 feature hierarchy 구조에서 high-resolution feature map을 사용하지 않음. 따라서 small object를 검출하는 성능이 떨어질 수 있음.
 
         ![FPN/Untitled%202.png](./images/FPN/Untitled 2.png)
-
+<br/>
+<br/>
+<br/>
 - **Feature Pyramid Network**
     - 이 논문의 goal은 CNN의 feature hierarchy 구조를 살리면서 feature pyramid가 모든 scale에서 strong semantic하게 만드는 것. 이를 위해 상대적으로 strong semantic한 정보를 담고 있는 low-resolution feature와 그렇지 않은 high-resolution feature를 top-down + lateral connection 방식으로 combine함
     - 따라서, single scale image로 모든 level에서 rich semantic한 feature pyramid를 만들 수 있게 된다.
 
         ![FPN/Untitled%203.png](./images/FPN/Untitled 3.png)
-
+<br/>
+<br/>
+<br/>
     - 기존에도 top-down + skip connection구조를 이용한 비슷한 아키텍처들이 있음. 기존 모델들은 하나의 high-level feature map을 만들어서 이 feature map을 prediction에 사용함.
     - 이와 반대로 FPN에서는 각 level에서 독립된 feature을 이용하여 prediction하며 이러한 구조는 모든 scale이 end-to-end로 학습됨
 
@@ -59,7 +68,10 @@
 - 구체적인 merge 방식은 아래 그림 3과 같으며, add연산을 하기 위해 top-down pathway의 feature를 2배 up-sampling하며 bottom-up pathway feature는 channel dimension을 맞추기 위해 1x1 conv를 수행
 
     ![FPN/Untitled%205.png](./images/FPN/Untitled 5.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 아래 그림이 설명을 매우 잘해놔서 이 그림만 봐도 될 정도.
 - bottom-up에서 C2, C3, C4, C5를 feature를 만듦, C5는 다시 top-down에서 up-sampling하기 위한 feature로 사용됨.
 - M5를 만들기 위해 C5에 1x1 conv
@@ -68,7 +80,10 @@
 - (그림에선 M5에 3x3 conv 적용 안 하는 것으로 나오는데 코드 찾아본 결과 M5에도 3x3 conv 수행함)
 
 ![FPN/Untitled%206.png](./images/FPN/Untitled 6.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 # Applications
 
 ### Feature Pyramid Networks for RPN(Region Proposal Network)
