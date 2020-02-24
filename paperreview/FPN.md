@@ -1,8 +1,3 @@
-# FPN
-
-Status: finished
-Year: 2017 CVPR
-
 # Feature Pyramid Networks for Object Detection
 
 # Abstract
@@ -18,31 +13,31 @@ Year: 2017 CVPR
     - Featurized image pyramid 방식은 image를 다양한 scale로 조절하여 multi-scale image들을 입력으로 하여 feature를 추출하는 방식이다. 따라서 scale이 작은 image는 상대적으로 작은 feature map이 만들어지고 scale이 큰 image는 상대적으로 큰 feature map이 만들어진다.
     - 이렇게 만들어진 서로 다른 feature map들을 이용하여 predict하게 됨. 요즘엔 잘 안쓰임
 
-        ![FPN/Untitled.png](FPN/Untitled.png)
+        ![FPN/Untitled.png](./images/FPN/Untitled.png)
 
 - **Single feature map**
     - CNN이 scale variance에 robust하기 때문에 single scale feature를 이용하는 Singe feature map방식이 있음.
     - robust하다는 장점이 있지만 multi-scale을 사용하지 않기 때문에 accurate result 측면에서 성능이 떨어짐
 
-        ![FPN/Untitled%201.png](FPN/Untitled%201.png)
+        ![FPN/Untitled%201.png](./images/FPN/Untitled 1.png)
 
 - **Pyramidal feature hierarchy**
     - CNN 레이어의 중간 중간 spatial resolution이 다른 feature를 가져와서 각 feature 마다 predict하는 pyramidal feature hierarchy 방식이 있음. (대표적인 예로 SSD)
     - 이 방식은 multi-scale을 사용하지만 앞쪽 레이어의 feature는 뒷쪽 레이어에서 feature보다 depth가 작기 때문에 feature map들 간의 semantic gap이 발생하게 됨.
     - SSD의 경우 low-level의 feature를 사용하지 않기 때문에 feature hierarchy 구조에서 high-resolution feature map을 사용하지 않음. 따라서 small object를 검출하는 성능이 떨어질 수 있음.
 
-        ![FPN/Untitled%202.png](FPN/Untitled%202.png)
+        ![FPN/Untitled%202.png](./images/FPN/Untitled 2.png)
 
 - **Feature Pyramid Network**
     - 이 논문의 goal은 CNN의 feature hierarchy 구조를 살리면서 feature pyramid가 모든 scale에서 strong semantic하게 만드는 것. 이를 위해 상대적으로 strong semantic한 정보를 담고 있는 low-resolution feature와 그렇지 않은 high-resolution feature를 top-down + lateral connection 방식으로 combine함
     - 따라서, single scale image로 모든 level에서 rich semantic한 feature pyramid를 만들 수 있게 된다.
 
-        ![FPN/Untitled%203.png](FPN/Untitled%203.png)
+        ![FPN/Untitled%203.png](./images/FPN/Untitled 3.png)
 
     - 기존에도 top-down + skip connection구조를 이용한 비슷한 아키텍처들이 있음. 기존 모델들은 하나의 high-level feature map을 만들어서 이 feature map을 prediction에 사용함.
     - 이와 반대로 FPN에서는 각 level에서 독립된 feature을 이용하여 prediction하며 이러한 구조는 모든 scale이 end-to-end로 학습됨
 
-    ![FPN/Untitled%204.png](FPN/Untitled%204.png)
+    ![FPN/Untitled%204.png](./images/FPN/Untitled 4.png)
 
 # Feature Pyramid Networks
 
@@ -63,7 +58,7 @@ Year: 2017 CVPR
 - low-level의 bottom-up feature map은 sub-sampling된 횟수가 상대적으로 적기 때문에 localization의 성능을 높일 수 있음
 - 구체적인 merge 방식은 아래 그림 3과 같으며, add연산을 하기 위해 top-down pathway의 feature를 2배 up-sampling하며 bottom-up pathway feature는 channel dimension을 맞추기 위해 1x1 conv를 수행
 
-    ![FPN/Untitled%205.png](FPN/Untitled%205.png)
+    ![FPN/Untitled%205.png](./images/FPN/Untitled 5.png)
 
 - 아래 그림이 설명을 매우 잘해놔서 이 그림만 봐도 될 정도.
 - bottom-up에서 C2, C3, C4, C5를 feature를 만듦, C5는 다시 top-down에서 up-sampling하기 위한 feature로 사용됨.
@@ -72,7 +67,7 @@ Year: 2017 CVPR
 - 이렇게 만들어진 M2, M3, M4, M5가 prediction에 바로 사용되는 게 아니라 3x3 conv를 한 뒤에 final feature map {P2, P3, P4, P5}을 만듦. 3x3 conv를 한번 더 하는 이유는 up-sampling으로 인한 aliasing 효과를 줄이기 위함. 또한, P2, P3, P4, P5는 classifier와 regressor를 공유하여 사용하기 때문에 3x3 conv에서 channel 수를 256으로 사용함.
 - (그림에선 M5에 3x3 conv 적용 안 하는 것으로 나오는데 코드 찾아본 결과 M5에도 3x3 conv 수행함)
 
-![FPN/Untitled%206.png](FPN/Untitled%206.png)
+![FPN/Untitled%206.png](./images/FPN/Untitled 6.png)
 
 # Applications
 
@@ -81,7 +76,7 @@ Year: 2017 CVPR
 - RPN에서는 feature extraction으로 추출된 conv feature map에 3x3 sliding window를 사용하여 각 지점에서 object/no object의 binary classification과 anchor box좌표에 대한 regression을 수행한다.
 - binary classification과 regression은 2개의 sibling 1x1 convolution으로 수행되며 이 부분을 network의 head라 부른다.
 
-    ![FPN/Untitled%207.png](FPN/Untitled%207.png)
+    ![FPN/Untitled%207.png](./images/FPN/Untitled 7.png)
 
 - RPN은 single-scale feature map을 이용하여 위 process를 수행하지만 FPN을 이용하여 multi-scale feature에서 RPN이 적용되도록 함. 각 pyramid feature level에서 3x3 conv와 2 sibling 1x1 conv를 사용하여 기존 RPN의 head를 똑같이 구현함
 - FPN의 feature map을 사용하게 되면 각 pyramid level의 feature를 이용하게 되므로 반드시 multi-scale anchor box를 사용할 필요는 없으며, 각 level에서 sing scale anchor를 할당함.
@@ -99,7 +94,7 @@ Year: 2017 CVPR
 - 224는 ImageNet pre-training size이며 k_0는 target level이다. ResNet 기반의 Faster R-CNN에서는 C_4 크기의 single-scale feature map을 사용하므로 여기서 k_0를 4로 설정한다.
 - 만약 k=3이라면 해당 RoI는 P3 feature map을 가지고 RoI Pooling을 적용함
 
-    ![FPN/Untitled%208.png](FPN/Untitled%208.png)
+    ![FPN/Untitled%208.png](./images/FPN/Untitled 8.png)
 
 - RoI Pooling을 통해 feature를 7x7 크기로 만들고 1024 f.c layer를 2개 붙인 다음  classification layer와 bounding box regression layer에 연결함
 
@@ -109,7 +104,7 @@ Year: 2017 CVPR
 
 - COCO에서 Average Recall을 평가함. AR_s, AR_m, AR_l은 small, medium, large object를 의미하며 AR^100, AR^1k는 proposal의 개수. "feature" column은 head 부분과 연결되는 feature map
 
-![FPN/Untitled%209.png](FPN/Untitled%209.png)
+![FPN/Untitled%209.png](./images/FPN/Untitled 9.png)
 
 - 윗쪽 row에서 baseline on conv4, 5는 RPN을 어느 feature map에서 수행할 것인지 나눈 것.  (a), (b) 둘다 hyper-parameter와 anchor{32^2, 64^2, 128^2, 256^2, 512^2}의 크기는 서로 같음. (a), (b)는 feature pyramid 구조 아님.
 - (b)가 (a)에 비해 이렇다 할 advantage가 없음. 즉 single higher-level feature map만으론 resolution과 strong semantic 사이의 trade-off가 잘 이루어지지 않는다.
@@ -138,7 +133,7 @@ Year: 2017 CVPR
 
 - proposal 방법을 Table 1의 (c)에 사용된 proposal로 fix해놓고 비교함
 
-![FPN/Untitled%2010.png](FPN/Untitled%2010.png)
+![FPN/Untitled%2010.png](./images/FPN/Untitled 10.png)
 
 - (a)는 C_4 feature map에 conv layer를 추가하여 head로 연결, 나머지는 "feature" column의 feature map에 2f.c layer 연결
 - (a), (b)보다 (c)에서 모든 성능 개선이 이루어짐. 제안하는 feature pyramid 방식은 region-base object detector에서도 효과적임을 보여줌
@@ -147,13 +142,13 @@ Year: 2017 CVPR
 
 - baseline (a), (b) (multi-scale anchor box)가 기존의 Faster R-CNN보다 AP@0.5 성능이 좋음. 그 이유는 600x600이 아닌 800x800 image를 input으로 사용했다는 점, 이미지 하나에서 512개의 RoI를 사용했다는 점, 4개가 아닌 5개의 multi-scale anchor를 사용했다는 점, 테스트 시 이미지 당 1000개의 proposal을 사용했다는 점에서 성능이 향상됨
 
-    ![FPN/Untitled%2011.png](FPN/Untitled%2011.png)
+    ![FPN/Untitled%2011.png](./images/FPN/Untitled 11.png)
 
 # Extensions: Segmentation Proposals
 
 - FPN을 Segmentation에도 적용했을 때
 
-    ![FPN/Untitled%2012.png](FPN/Untitled%2012.png)
+    ![FPN/Untitled%2012.png](./images/FPN/Untitled 12.png)
 
 # Conclusions
 
