@@ -1,7 +1,4 @@
-# STM
-
-URL: https://arxiv.org/abs/1908.02486
-Year: 2019 ICCV
+# STM: SpatioTemporal and Motion Encoding for Action Recognition
 
 # Abstract
 
@@ -16,14 +13,14 @@ Year: 2019 ICCV
 
 - 연속된 두 frame 사이에서 첫번째 frame의 pixel이 두번째 frame에서 어느 위치로 이동했는가에 대한 motion 정보를 vector를 이용하여 나타낸 것
 
-    ![STM/Untitled.png](STM/Untitled.png)
+    ![STM/Untitled.png](./images/STM/Untitled.png)
 
 - 모든 점에 대한 vector를 그리기 힘들고 제대로 알아보기 힘들기 때문에 일반적으론 HSV color map을 이용하여 표현함
 - Hue(색상), Saturation(채도), Value(명도)
 - Hue(색상)을 사용하여 direction을 표현
 - Saturation(채도)를 사용하여 magnitude를 표현
 
-    ![STM/Untitled%201.png](STM/Untitled%201.png)
+    ![STM/Untitled%201.png](./images/STM/Untitled 01.png)
 
 - [https://www.youtube.com/watchv=Z_t0shK98pM&list=PL_skMddDjnzq1wDI3t2cH9hlK6wBBapeA&index=14](https://www.youtube.com/watch?v=Z_t0shK98pM&list=PL_skMddDjnzq1wDI3t2cH9hlK6wBBapeA&index=14)
 
@@ -43,7 +40,7 @@ Year: 2019 ICCV
 
 - 본 논문의 technical approach는 CSTM과 CMM이라는 새로운 모듈은 제안하여 spatio-temporal feature와 motion feature를 효과적으로 추출하겠다는 것.
 
-![STM/Untitled%202.png](STM/Untitled%202.png)
+![STM/Untitled%202.png](./images/STM/Untitled 02.png)
 
 ### Channel-wise SpatioTemporal Module
 
@@ -59,11 +56,11 @@ Year: 2019 ICCV
 
 - 아래 Figure 1을 보면 CSTM이 spatiotemporal feature를 잘 학습했다는 걸 알 수 있음. CSTM의 output feature map(third row)을 보면 background가 아니라 사람의 손 같이 action의 main part가 되는 요소에 더 집중함
 
-    ![STM/Untitled%203.png](STM/Untitled%203.png)
+    ![STM/Untitled%203.png](./images/STM/Untitled 03.png)
 
 ### Channel-wise Motion Module
 
-![STM/Untitled%202.png](STM/Untitled%202.png)
+![STM/Untitled%202.png](./images/STM/Untitled 02.png)
 
 - lightweight인 CMM(Channel-wise Motion Module)을 사용하여 인접한 frame에서 motion pattern을 추출
 - CMM을 사용하면 optical flow를 사용하지 않는다는 점에서 효율적인 방법이라 할 수 있음. CMM을 통해 motion representation을 더 키워서 action recognition의 성능을 높임
@@ -78,7 +75,7 @@ Year: 2019 ICCV
 
 - 위에서 제안한 CSTM, CMM을 combine하여 STM block을 만듦. STM Network는 ResNet 아키텍처를 기반으로 하기 때문에 기존의 residual block을 STM block으로 모두 교체함
 
-    ![STM/Untitled%204.png](STM/Untitled%204.png)
+    ![STM/Untitled%204.png](./images/STM/Untitled 04.png)
 
 - STM block에선 CMM, CSTM으로 가기 전에 1x1 conv를 먼저 수행함. feature의 채널 수를 줄여 cost를 줄이기 위한 목적
 - CSTM과 CMM을 통해 나온 각 feature map을 element-wise sum연산한 뒤 다시 1x1 conv를 통해 channel 수를 늘려서 STM block의 input feature map과 element-wise sum.
@@ -95,7 +92,7 @@ Year: 2019 ICCV
 - scene-related dataset에선 background information이 action을 인식하기 위한 많은 정보를 담고 있음. 따라서 scene-related dataset에선 temporal relation의 중요도가 temporal-related dataset에 비해 상대적으로 떨어짐. 말 타는 action의 연속된 frame이 있지만, 굳이 여러 frame을 보지 않고 한 장의 frame만 보고도 무슨 action을 하는지 인식할 수 있음. 따라서 background 혹은 object만 보고도 행동을 인식할 수 있음
 - Figure 4에서 temporal-related data와 scene-related data의 차이를 보여줌. 논문에서 제안하는 method는 spatio-temporal 정보와 motion 정보를 효과적으로 추출하기 위해 설계되었기 때문에 temporal-related dataset에 더 적합하다고 볼 수 있음. 그러나 scene-related dataset에서도 competitive result를 보여줌.
 
-    ![STM/Untitled%205.png](STM/Untitled%205.png)
+    ![STM/Untitled%205.png](./images/STM/Untitled 05.png)
 
 ### Implementation Details
 
@@ -117,7 +114,7 @@ Year: 2019 ICCV
 
 - Table1. Something-Something v1 & v2 dataset에서 SOTA 모델과 비교
 
-    ![STM/Untitled%206.png](STM/Untitled%206.png)
+    ![STM/Untitled%206.png](./images/STM/Untitled 06.png)
 
 - baseline model인 TSN과 비교했을 때 v1 & v2에서 제안하는 STM의 top-1 accuracy가 훨씬 높은 성능을 보여줌.
 - S3D-G, ECO, I3D+GCN는 3D CNN 기반의 모델, TRN, MFNet, TSM은 2D CNN 기반의 모델
@@ -126,7 +123,7 @@ Year: 2019 ICCV
 
 - Table 2. Jester dataset
 
-    ![STM/Untitled%207.png](STM/Untitled%207.png)
+    ![STM/Untitled%207.png](./images/STM/Untitled 07.png)
 
 - STM 8/16 frame은 모든 지표에서 SOTA 달성
 
@@ -134,7 +131,7 @@ Year: 2019 ICCV
 
 - Table 3. Kinetics-400 dataset, SOTA 모델과 비교. 여기선 STM 16 frame
 
-    ![STM/Untitled%208.png](STM/Untitled%208.png)
+    ![STM/Untitled%208.png](./images/STM/Untitled 08.png)
 
 - 앞서 말했던 것처럼 Scene-related dataset은 temporal-related dataset과 차이가 있다.
 - Kinetics dataset의 action은 연속된 frame이 아닌 특정 frame만 가지고 그 안에 있는 scene or object 정보를 통해 어떤 action을 하는지 인식할 수 있다. 따라서 temporal modeling을 하지 않는 모델들도 괜찮은 성능을 낸다.
@@ -142,7 +139,7 @@ Year: 2019 ICCV
 
 - Table 4. UCF-101, HMDB-51 dataset
 
-    ![STM/Untitled%209.png](STM/Untitled%209.png)
+    ![STM/Untitled%209.png](./images/STM/Untitled 09.png)
 
 - HMDB-51 dataset에서 ImageNet으로 pre-train시킨 모델과 Kinetics로 pre-train시킨 모델을 비교했을 때 Kinetics dataset으로 pre-train하는 게 훨씬 성능이 좋음
 - STM보다 I3D two-stream, TSN two-stream의 성능이 약간 더 좋음. 그러나 I3D, TSN은 optical flow를 추가적으로 사용하지만 STM은 optical flow를 사용하지 않고도 준수한 성능을 냄
@@ -152,7 +149,7 @@ Year: 2019 ICCV
 
 - STM block은 CSTM과 CMM 두 모듈을 combine하여 사용함. CSTM과 CMM의 성능을 개별적으로 비교해봄. Something-Something v1 dataset으로 비교.
 
-    ![STM/Untitled%2010.png](STM/Untitled%2010.png)
+    ![STM/Untitled%2010.png](./images/STM/Untitled 10.png)
 
 - 당연히 STM(CSTM+CMM)을 썼을 때 성능이 제일 높음. CSTM이 temporal fusion 정보를 학습하고 CMM은 motion 정보를 학습하기 때문에 두 모듈을 같이 사용하여 combine하면 richer spatio-temporal & motion feature를 학습할 수 있음.
 
@@ -160,13 +157,13 @@ Year: 2019 ICCV
 
 - CSTM과 CMM을 combine할 때 summation할 건지 concatenation(channel dimension을 기준으로 concat)할 건지 비교함. concat보다 summation이 더 잘 나옴
 
-    ![STM/Untitled%2011.png](STM/Untitled%2011.png)
+    ![STM/Untitled%2011.png](./images/STM/Untitled 11.png)
 
 ### Location and number of STM block
 
 - STM block을 ResNet stage의 어느 부분에 넣을건지 혹은 STM block을 여러 번 사용할 건지
 
-![STM/Untitled%2012.png](STM/Untitled%2012.png)
+![STM/Untitled%2012.png](./images/STM/Untitled 12.png)
 
 - 첫번째 컬럼은 해당 stage에서 STM block을 1개만 사용했을 때의 결과. STM block을 하나만 사용했을 때도 TSN보다 성능이 잘 나오는 걸 알 수 있음
 - 또한 STM block을 stage 2보다 stage 5에서 썼을 때 성능이 더 높게 나옴. 그 이유는 temporal modeling은 receptive field가 클 때 전체적인 feature를 capture할 수 있기 때문.
@@ -176,7 +173,7 @@ Year: 2019 ICCV
 
 - CSTM의 conv 연산을 channel-wise vs ordinary
 
-    ![STM/Untitled%2013.png](STM/Untitled%2013.png)
+    ![STM/Untitled%2013.png](./images/STM/Untitled 13.png)
 
 - Ordinary convolution보다 channel-wise convolution을 사용하는 것이 accuracy, parameter, FLOPs 모든 측면에서 효과적임
 
@@ -184,7 +181,7 @@ Year: 2019 ICCV
 
 - 제안하는 모델의 속도 평가
 
-    ![STM/Untitled%2014.png](STM/Untitled%2014.png)
+    ![STM/Untitled%2014.png](./images/STM/Untitled 14.png)
 
 - 이전 실험에서 봤듯이, 제안하는 STM이 accuracy 측면에서 SOTA를 달성함. 여기서 중요한 것은 STM은 2D CNN 기반이며 3D convolution이나 optical flow를 사용하지 않고도 SOTA를 달성했다는 점
 - 따라서 이번에는 STM과 기존의 SOTA모델들의 accuracy와 speed등 여러 지표를 같이 비교하여 평가함
