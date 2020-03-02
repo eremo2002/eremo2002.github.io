@@ -120,7 +120,10 @@
 - S3D-G, ECO, I3D+GCN는 3D CNN 기반의 모델, TRN, MFNet, TSM은 2D CNN 기반의 모델
 - STM 8 frame은 optical flow를 사용하면서 frame도 더 많이 사용하는 모델이랑 비교했을 때도 SOTA 성능을 달성함
 - STM 16 frame은 validation set에서 best performance를 보여주었고 test set에서 top-1 accuracy는 살짝 낮음
-
+<br/>
+<br/>
+<br/>
+<br/>
 - Table 2. Jester dataset
 
     ![STM/Untitled%207.png](./images/STM/Untitled 7.png)
@@ -136,7 +139,10 @@
 - 앞서 말했던 것처럼 Scene-related dataset은 temporal-related dataset과 차이가 있다.
 - Kinetics dataset의 action은 연속된 frame이 아닌 특정 frame만 가지고 그 안에 있는 scene or object 정보를 통해 어떤 action을 하는지 인식할 수 있다. 따라서 temporal modeling을 하지 않는 모델들도 괜찮은 성능을 낸다.
 - 본 논문에서 제안하는 STM은 temporal-related action recognition에 좀 더 focus를 두고 있음. 그럼에도 불구하고 optical flow까지 사용했던 I3D와 성능이 크게 차이나지 않는다. 또한 3D CNN기반의 methods보다 높은 성능을 낸다.
-
+<br/>
+<br/>
+<br/>
+<br/>
 - Table 4. UCF-101, HMDB-51 dataset
 
     ![STM/Untitled%209.png](./images/STM/Untitled 9.png)
