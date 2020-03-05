@@ -1,10 +1,6 @@
-# TrafficSpeedEstimationfromSurveillanceVideo
+# Traffic Speed Estimation from Surveillance Video
 
-Status: finished
-URL: http://openaccess.thecvf.com/content_cvpr_2018_workshops/w3/html/Huang_Traffic_Speed_Estimation_CVPR_2018_paper.html
-Year: 2018 AI City Challenge
-
-![TrafficSpeedEstimationfromSurveillanceVideo/Untitled.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled.png)
+![TrafficSpeedEstimationfromSurveillanceVideo/Untitled.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled.png)
 
 # Abstract
 
@@ -32,14 +28,14 @@ Year: 2018 AI City Challenge
 
 - Track 1 data description, 2 highway ICs(Interchange) and 2 intersections
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%201.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%201.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%201.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 1.png)
 
 - video resolution is 1920x1080
 - All cameras have overhead view
 
 # 3. Methods and results
 
-![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%202.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%202.png)
+![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%202.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 2.png)
 
 ### 3.1. **Object detection**
 
@@ -60,11 +56,11 @@ Year: 2018 AI City Challenge
 - **Applying filtering algorithm**
     - (a), (b), (c)에서 멀리 있는 차량에선 중복된 bounding box가 많이 만들어지지만 제안하는 filtering 알고리즘을 통해 이를 보완할 수 있음
 
-        ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%203.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%203.png)
+        ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%203.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 3.png)
 
     - 또한 아래 (d)에서처럼 extremely large bounding box가 만들어질 수 있는데 이러한 box들도 사전에 filtering
 
-        ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%204.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%204.png)
+        ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%204.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 4.png)
 
 **3.2. Multi-object tracking**
 
@@ -74,48 +70,48 @@ Year: 2018 AI City Challenge
 
 - Tracking Algorithm
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%205.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%205.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%205.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 5.png)
 
 - 첫번째 frame에서 object detection으로 bounding box를 그리고 box마다 ID할당. frame 3에서 bounding box ID는 없다고 가정.
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%206.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%206.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%206.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 6.png)
 
 - frame 1에서 ID가 4인 b4를 target으로 설정하고 이 차량을 어떻게 tracking하는지 보자.
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%207.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%207.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%207.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 7.png)
 
 - frame 1에서 bounding box 'b4'의 size를 extend시킨 'neighborhood region'을 frame 3에 그린다.
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%208.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%208.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%208.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 8.png)
 
 - frame 3에서 만들어진 neighborhood region과 80% 이상 겹치는 bounding box들을 candidate로 설정한다. 총 3개의 box가 candidate로 들어갔다고 하자.
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%209.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%209.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%209.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 9.png)
 
 - 여러 candidate 중 하나만 선택해야하므로 frame 1의 target과 frame 3의 candidate 간의 Chi-squared distance를 계산하여 가장 작은 값을 최종 candidate로 선택한다.
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2010.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2010.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2010.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 10.png)
 
 - 
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2011.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2011.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2011.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 11.png)
 
 - frame 3에서 선택된 최종 candidate에 target이 가지고 있던 ID와 같은 ID를 할당한다.
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2012.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2012.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2012.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 12.png)
 
 - frame 3에 존재하는 모든 bounding box들에 대해 위와 같은 방식으로 ID를 할당한다.
 - 만약, ID가 할당되지 않은 경우 frame 1에서 나타나지 않고 frame 3에서 새롭게 나타난 차량으로 보고 새로운 ID를 할당한다.
 
 - Tracking result.
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2013.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2013.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2013.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 13.png)
 
 ### 3.3. Speed conversion
 
 - pixel domain에서 mile per hour로 speed converting하기 위해 linear perspective transformation warping을 사용함.
 
-    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2014.png](TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2014.png)
+    ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2014.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 14.png)
 
 - lane width를 12 feet로 가정(US standard)하여 warping된 lane에서 speed를 계산함. speed conversion result는 5 frame step size(0.167 second)로 moving average를 통해 smoothing
 - 논문에선 linear perspective transformation warping method를 사용했는데 이 방법은 도로가 직선이거나 평평하거나 카메라 외곡이 없을 시, 오히려 error가 더 높아지는 원인이 될 수도 있음
