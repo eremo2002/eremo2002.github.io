@@ -28,7 +28,8 @@ permalink: /paperreview/
 {:.related-posts.faded}
 
 
-
+## Speed Estimation
+* [Traffic Speed Estimation from Surveillance Video]{:.heading.flip-title}
 
 <!--
 ## Other
@@ -57,6 +58,9 @@ permalink: /paperreview/
 [C3D]: C3D.md
 [T3D]: T3D.md
 [STM]: STM.md
+
+
+[Traffic Speed Estimation from Surveillance Video]: Traffic Speed Estimation from Surveillance Video.md
 <!--
   [LICENSE]: ../LICENSE.md
   [NOTICE]: ../NOTICE.md
