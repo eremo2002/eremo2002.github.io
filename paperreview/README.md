@@ -61,7 +61,7 @@ permalink: /paperreview/
 
  
 [Traffic Speed Estimation from Surveillance Video]: Traffic Speed Estimation from Surveillance Video.md
-<!--
+<!-- 
   [LICENSE]: ../LICENSE.md
   [NOTICE]: ../NOTICE.md
   [CHANGELOG]: ../CHANGELOG.md
