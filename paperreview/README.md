@@ -59,7 +59,7 @@ permalink: /paperreview/
 [T3D]: T3D.md
 [STM]: STM.md
 
-
+ 
 [Traffic Speed Estimation from Surveillance Video]: Traffic Speed Estimation from Surveillance Video.md
 <!--
   [LICENSE]: ../LICENSE.md
