@@ -29,7 +29,7 @@ permalink: /paperreview/
 
 
 ## Speed Estimation
-* [Traffic Speed Estimation from Surveillance Video]{:.heading.flip-title}
+* [Traffic Speed Estimation from Surveillance Video]{:.heading.flip-title} --- (2018 AI City Challenge)
 
 <!--
 ## Other
