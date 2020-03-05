@@ -72,35 +72,60 @@
 - Tracking Algorithm
 
     ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%205.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 5.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 첫번째 frame에서 object detection으로 bounding box를 그리고 box마다 ID할당. frame 3에서 bounding box ID는 없다고 가정.
 
     ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%206.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 6.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - frame 1에서 ID가 4인 b4를 target으로 설정하고 이 차량을 어떻게 tracking하는지 보자.
 
     ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%207.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 7.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - frame 1에서 bounding box 'b4'의 size를 extend시킨 'neighborhood region'을 frame 3에 그린다.
 
     ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%208.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 8.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - frame 3에서 만들어진 neighborhood region과 80% 이상 겹치는 bounding box들을 candidate로 설정한다. 총 3개의 box가 candidate로 들어갔다고 하자.
 
     ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%209.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 9.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - 여러 candidate 중 하나만 선택해야하므로 frame 1의 target과 frame 3의 candidate 간의 Chi-squared distance를 계산하여 가장 작은 값을 최종 candidate로 선택한다.
 
     ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2010.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 10.png)
+<br/>
+<br/>
+<br/>
+<br/>
 
 - 
 
     ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2011.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 11.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - frame 3에서 선택된 최종 candidate에 target이 가지고 있던 ID와 같은 ID를 할당한다.
 
     ![TrafficSpeedEstimationfromSurveillanceVideo/Untitled%2012.png](./images/TrafficSpeedEstimationfromSurveillanceVideo/Untitled 12.png)
-
+<br/>
+<br/>
+<br/>
+<br/>
 - frame 3에 존재하는 모든 bounding box들에 대해 위와 같은 방식으로 ID를 할당한다.
 - 만약, ID가 할당되지 않은 경우 frame 1에서 나타나지 않고 frame 3에서 새롭게 나타난 차량으로 보고 새로운 ID를 할당한다.
 
