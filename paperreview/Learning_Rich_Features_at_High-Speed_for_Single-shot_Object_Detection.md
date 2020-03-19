@@ -59,7 +59,9 @@
 - 일반적으로 Image classification에선 convolution, pooling layer를 여러 개 쌓아 네트워크를 구축하여 semantically strong feature를 추출한다. 그러나, image classification과 달리 object detection은 object에 대해 정확한 delineation이 필요하기 때문에 low & mid-level information이 매우 중요한 역할을 한다.
 
     ![Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection/Untitled 3.png](./images/Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection/Untitled 3.png)
-
+<br/>
+<br/>
+<br/>
 - 따라서 backbone으로 pre-trained network를 사용했을 때 발생하는 information loss를 보완하기 위해 LSN이 alternative feature extraction을 위한 역할을 수행한다.
 - Input image를 바로 down-sampling(max-pooling 3번)하여 SSD first prediction layer의 target size와 맞춰준다. 그런 다음 LSO(light-weight serial operation)인 conv, bn, relu를 거쳐 LSN feature를 생성한다. LSN은 random initialization으로 초기화함.
 - LSN feature를 SSD prediction layer와 연결하기 위해 38x38, 19x19, 10x10, 5x5 크기의  feature를 추출한다. Input image I에 대해 down-sampling된 I_t를 입력으로 하여 총 4개의 LSN feature s_1, s_2, s_3, s_4을 추출한다.
@@ -93,11 +95,15 @@ $$initial \; feature\quad  s_{int(0)} = \varphi_{int(0)}(I_t)$$
 - w_(k-1) = 3x3 conv
 - f_(k-1) = forward feature from (k-1)번째 level
 - 𝝓 = ReLU and 3x3 conv
-
+<br/>
+<br/>
+<br/>
+<br/>
 - Bottom-up scheme forward feature pyramid
 
     ![Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection/Untitled 7.png](./images/Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection/Untitled 7.png)
-
+<br/>
+<br/>
 - bottom-up scheme는 low & mid-level feature를 circulate하는 역할을 하며 high-level semantic information을 inject하기 위해 top-down scheme를 사용한다.
 - top-down scheme에서는 later layer feature를 모두 가져와서 current layer에 connect한다. 따라서 high-level semantic information이 independent parallel connection을 통해 circulate된다.
 - top-down scheme pyramid feature를 backward feature pyramid라 부르며 top-down scheme안에서 이루어지는 연산은 아래 수식으로 표현할 수 있다.
@@ -168,7 +174,10 @@ $$initial \; feature\quad  s_{int(0)} = \varphi_{int(0)}(I_t)$$
 - LSN feature를 SSD의 different stage feature와 integrating하여 비교했을 때도 성능 향상이 있었지만 LSN feature를 higher layer와 integrating했을 때 성능 향상이 가장 크게 이루어짐
 - LSN feature대신 SSD에서 shallow feature를 가져와서 integrating해봤는데 LSN feature를 사용하는 것보다 안 좋았음. 즉, pre-trained VGG에서 뽑아낸 feature가 아닌 training from scratch를 통해 feature를 뽑아서 integrating하는 것이 더 중요함
 - 또한 제안하는 Bi-directional 구조를 SSD-FPN과 비교했을 때 더 높은 성능 향상이 이루어짐
-
+<br/>
+<br/>
+<br/>
+<br/>
 - LSN을 사용하지 않고 Bottom-up, Top-down scheme에서 connection구조를 다르게 적용했을 때 비교
 
     ![Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection/Untitled 13.png](./images/Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection/Untitled 13.png)
