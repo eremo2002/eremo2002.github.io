@@ -18,6 +18,7 @@ permalink: /paperreview/
 * [YOLOv1]{:.heading.flip-title} --- You Only Look Once: Unified, Real-Time Object Detection
 * [YOLOv2]{:.heading.flip-title} --- YOLO 9000: Better, Faster, Stronger
 * [FPN(Feature Pyramid Networks)]{:.heading.flip-title} --- Feature Pyramid Networks for Object Detection
+* [Learning Rich Features at High-Speed for Single-shot Object Detection]{:.heading.flip-title}
 {:.related-posts.faded}
 
 
@@ -54,6 +55,7 @@ permalink: /paperreview/
 [yolov1]: YOLOv1.md
 [YOLOv2]: YOLOv2.md
 [FPN(Feature Pyramid Networks)]: FPN.md
+[Learning Rich Features at High-Speed for Single-shot Object Detection]: Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection.md
 
 [C3D]: C3D.md
 [T3D]: T3D.md
