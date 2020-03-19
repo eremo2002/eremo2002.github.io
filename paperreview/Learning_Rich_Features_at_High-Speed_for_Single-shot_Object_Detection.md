@@ -1,8 +1,4 @@
-# Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection
 
-Status: finished
-URL: http://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_Learning_Rich_Features_at_High-Speed_for_Single-Shot_Object_Detection_ICCV_2019_paper.pdf
-Year: 2019 ICCV
 
 # Abstract
 
