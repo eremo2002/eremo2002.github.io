@@ -12,7 +12,7 @@
 
 # 1. Introduction
 
-- 현재 object detection method는 크게 single-stage, two-stage로 구분할 수 있으며 single-stage method는 speed에서, tow-stage method는 accuracy에서 큰 이점을 갖음
+- 현재 object detection method는 크게 single-stage, two-stage로 구분할 수 있으며 single-stage method는 speed에서, tow-stage method는 accuracy에서 큰 이점을 가짐
 - single-stage method의 속도를 살리면서 높은 정확도를 얻기 위한 연구가 있었음, large, medium size의 object는 잘 검출하지만 small object를 검출하는데 있어선 여전히 성능이 낮다.
 - small object를 잘 검출하기 위해선 low, mid-level information이 중요함
 
