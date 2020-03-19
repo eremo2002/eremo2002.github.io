@@ -149,7 +149,7 @@ $$initial \; feature\quad  s_{int(0)} = \varphi_{int(0)}(I_t)$$
 
 - MS COCO dataset에는 small size object가 41%를 차지하기 때문에 small object로 성능을 평가하는 것이 더 적합하다고도 볼 수 있음
 - 여기서 small object의 기준은 object instance area < 32^2인 경우를 small object라고 함
-- VGG-16을 backbone으로 하는 baseline SSD(top row)와 our approach(bottom row)의 error를 분석 (Table 2와 결과가 좀 다른데 table 2는 MS COCO minival dataset으로 evaluation, Figure 6는 MS COCO testset으로 evaluation한듯?)
+- VGG-16을 backbone으로 하는 baseline SSD(top row)와 our approach(bottom row)의 error를 분석
 
     ![Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection/Untitled 10.png](./images/Learning_Rich_Features_at_High-Speed_for_Single-shot_Object_Detection/Untitled 10.png)
 
