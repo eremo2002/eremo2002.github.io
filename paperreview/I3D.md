@@ -1,7 +1,6 @@
-# I3D
-
-Status: finished
-Year: 2017 CVPR
+# Quo Vadis, Action Recognition? A New Model and the Kinetics Dataset
+<br/>
+<br/>
 
 # Abstract
 
@@ -21,7 +20,7 @@ Year: 2017 CVPR
 
 - 기존에 많이 사용되었던 video architecture들을 비교해본다.
 
-    ![I3D/Untitled.png](I3D/Untitled.png)
+    ![I3D/Untitled.png](./images/I3D/Untitled.png)
 
 ### 2.1. The Old I: ConvNet+LSTM
 
@@ -74,20 +73,20 @@ Year: 2017 CVPR
 - RGB frame만 사용하는 경우 / optical flow만 사용 / RGB frame과 optical flow 둘다 사용
 - 모든 데이터셋에서 제안하는 Two-Stream I3D가 가장 높은 성능을 달성하였으며 RGB + Optical flow를 같이 사용했을 때 모델의 성능이 더 높아진다.
 
-    ![I3D/Untitled%201.png](I3D/Untitled%201.png)
+    ![I3D/Untitled%201.png](./images/I3D/Untitled 1.png)
 
 - Kinetics보다 UCF-101의 성능이 더 잘 나옴. Kinetics dataset이 class수도 4배가량 많고 clip수도 더 많음. Kinetics가 HMDB-51보다 성능이 더 잘나옴, HMDB-51은 학습 데이터의 수가 부족하고 clip들이 같은 scene에서 다른 action을 하는 경우가 있기 때문
 - Kinetics와 달리, UCF-101, HMDB-51 dataset에선 RGB만 사용하는 것보다 optical flow만 사용했을 때 더 성능이 잘 나옴. Kinetics에선 camera motion이 다양하기 때문에 motion stream을 학습시키는 것이 더 어려움
 
 - Pre-trained imagenet model을 사용했을 때 성능이 더 높아짐
 
-    ![I3D/Untitled%202.png](I3D/Untitled%202.png)
+    ![I3D/Untitled%202.png](./images/I3D/Untitled 2.png)
 
 # 5. Experimental Evaluation of Features
 
 - UCF-101, HMDB-51 dataset evaluation
 
-    ![I3D/Untitled%203.png](I3D/Untitled%203.png)
+    ![I3D/Untitled%203.png](./images/I3D/Untitled 3.png)
 
 - Original: Kinetics pre-training 사용 x
 - Fixed: Kinetics dataset으로 pre-training 후, 마지막 레이어만 fine-tuning 나머지 모든 레이어는 freezing
@@ -102,7 +101,7 @@ Year: 2017 CVPR
 
 - SOTA 모델들과의 비교
 
-    ![I3D/Untitled%204.png](I3D/Untitled%204.png)
+    ![I3D/Untitled%204.png](./images/I3D/Untitled 4.png)
 
 - Two-stream pre-training I3D가 SOTA를 달성
 - Kinetics pre-trained I3D는 Sports 1M pre-trained C3D 보다 성능이 잘 나온다. C3D 또한 video dataset으로 학습했지만 I3D 아키텍처가 더 better하며 Kinetics dataset의 퀄리티가 더 좋기 때문
