@@ -157,6 +157,8 @@ disqus_shortname:                https-eremo2002-github-io
 # These settings are specific to Hydejack.
 
 hydejack:
+  comments:            true
+  
   # Configure the order of complementary content on blog posts
   post_addons:         [about, newsletter, related, random]
 
@@ -355,8 +357,7 @@ kramdown:
     preview_as_code:   true
 
 compress_html:  
-#   comments:            ["<!-- ", " -->"]
-  comments:            [disqus]
+  comments:            ["<!-- ", " -->"]  
   clippings:           all
   endings:             all
   ignore:
