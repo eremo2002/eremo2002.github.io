@@ -145,8 +145,8 @@ defaults:
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-disqus_url:               https://https-eremo2002-github-io.disqus.com/
-disqus_id:                https-eremo2002-github-io
+
+disqus_shortname:                https-eremo2002-github-io
 
 
 # Setting a tinyletter username will enable the newsletter subscription box.
