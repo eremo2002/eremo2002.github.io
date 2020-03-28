@@ -5,6 +5,9 @@
 remote_theme:          hydecorp/hydejack
 
 
+disqus_url: http://disqus.com/by/eremo2002
+disqus_id: eremo2002
+
 # IMPORTANT: Set the URL of your site.
 # Set to https://<username>.github.io when hosting on GitHub Pages
 # (unless you are using a custom domain).
