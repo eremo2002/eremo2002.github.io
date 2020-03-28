@@ -354,9 +354,9 @@ kramdown:
     preview:           true
     preview_as_code:   true
 
-compress_html:
-  comments:            true
+compress_html:  
 #   comments:            ["<!-- ", " -->"]
+  comments:            [disqus]
   clippings:           all
   endings:             all
   ignore:
