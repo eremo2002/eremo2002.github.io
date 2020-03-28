@@ -353,7 +353,8 @@ kramdown:
     preview_as_code:   true
 
 compress_html:
-  comments:            ["<!-- ", " -->"]
+  comments:            true
+#   comments:            ["<!-- ", " -->"]
   clippings:           all
   endings:             all
   ignore:
