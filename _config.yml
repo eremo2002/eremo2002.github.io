@@ -5,8 +5,7 @@
 remote_theme:          hydecorp/hydejack
 
 
-disqus_url: http://disqus.com/by/eremo2002
-disqus_id: eremo2002
+
 
 # IMPORTANT: Set the URL of your site.
 # Set to https://<username>.github.io when hosting on GitHub Pages
@@ -146,7 +145,7 @@ defaults:
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-# disqus:                <disqus_shortname>
+disqus:                eremo2002
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 # tinyletter:            <tinyletter_username>
